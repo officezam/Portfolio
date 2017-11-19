@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('auth.login');});
 
 Route::get('/backend', function () {
 	return view('backend.dashboard');
@@ -22,7 +20,6 @@ Route::get('/backend', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('save-employee', 'EmployeeController@saveEmployee')->name('save-employee');
+Route::get('add-employee', function(){return view('backend.user.addemployeeform');});
+Route::get('show-employee', 'EmployeeController@showEmployee')->name('showemployee');

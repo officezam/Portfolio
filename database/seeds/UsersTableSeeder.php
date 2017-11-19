@@ -18,10 +18,12 @@ class UsersTableSeeder extends Seeder
 				'username' => 'Admin',
 				'date_of_birth' => '1993-02-15',
 				'type' => 'admin',
+				'phone' => '+923007227332',
 				'created_by' => 'admin',
 				'verify' => 1,
 				'email' => 'admin@gmail.com',
 				'password' => bcrypt('123456'),
+				'address' => '',
 			]);
 		DB::table('users')->insert(
 			[
@@ -30,10 +32,12 @@ class UsersTableSeeder extends Seeder
 				'username' => 'super User',
 				'date_of_birth' => '1993-02-15',
 				'type' => 'superuser',
+				'phone' => '+923007227332',
 				'created_by' => 1,
 				'verify' => 1,
 				'email' => 'superuser@gmail.com',
 				'password' => bcrypt('123456'),
+				'address' => '',
 			]);
 		DB::table('users')->insert(
 			[
@@ -42,10 +46,12 @@ class UsersTableSeeder extends Seeder
 				'username' => 'Sub User',
 				'date_of_birth' => '1993-02-15',
 				'type' => 'suberuser',
+				'phone' => '+923007227332',
 				'created_by' => 1,
 				'verify' => 1,
 				'email' => 'suberuser@gmail.com',
 				'password' => bcrypt('123456'),
+				'address' => '',
 			]
 		);
 	}
