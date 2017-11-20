@@ -14,7 +14,6 @@ class EmployeeController extends Controller
 	/*Save New Employee */
 	public function saveEmployee(Request $request)
 	{
-
 		if ($request->hasFile('profile_image')) {
 			$file = $request->profile_image;
 			$filename  = $request->first_name.$request->last_name.time() . '.' . $file->getClientOriginalExtension();
@@ -49,9 +48,18 @@ class EmployeeController extends Controller
 	/*Show All Sub User of Super User
 	*/
 	public function showEmployee(){
+
 		$employee = User::where('created_by', Auth()->id())->get();
 		return view('backend.user.showemployee',compact('employee'));
 	}
+
+	/*Delete Employee
+	*/
+	public function deleteEmployee($empId ,Request $request){
+		dd($empId);
+	}
+
+
 
 
 

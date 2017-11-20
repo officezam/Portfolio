@@ -64,7 +64,7 @@
                                     <td>{{ $emp->type }}</td>
                                     <td>{{ $emp->created_by }}</td>
                                     <td>{{ $emp->verify }}</td>
-                                    <td>Edit | Delete</td>
+                                    <td>Edit | <a href="{{ route('delete-employeee' , $emp->id) }}" > Delete </a></td>
                                 </tr>
                                 @endforeach
 

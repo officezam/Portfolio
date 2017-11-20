@@ -39,6 +39,29 @@
                 <li>
                     <a href="#">
                         <i class="livicon" data-name="medal" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>
+                        <span class="title">Employee Management</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{{ route('showemployee') }}">
+                                <i class="fa fa-angle-double-right"></i>
+                                View All Employee
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('addemployee') }}">
+                                <i class="fa fa-angle-double-right"></i>
+                                Add Employee
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        <i class="livicon" data-name="medal" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>
                         <span class="title">Builders</span>
                         <span class="fa arrow"></span>
                     </a>
