@@ -27,222 +27,55 @@
         <section class="content">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-success filterable" style="overflow:auto;">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <i class="livicon" data-name="responsive" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                Re-order Columns
-                            </h3>
+                    <div class="panel panel-primary filterable">
+                        <div class="panel-heading clearfix  ">
+                            <div class="panel-title pull-left">
+                                <div class="caption">
+                                    <i class="livicon"  data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                                    Employee
+                                </div>
+
+                            </div>
+
+
                         </div>
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered" id="table2">
+                            <table class="table table-striped table-responsive" id="table1">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>User Name</th>
-                                    <th>
-                                        User E-mail
-                                    </th>
+                                    <th>User E-mail</th>
+                                    <th>Type</th>
+                                    <th>Created By</th>
+                                    <th>Verify</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($employee as $emp)
                                 <tr>
-                                    <td>1.</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>
-                                        JacobThornton
-                                    </td>
-                                    <td>
-                                        JacobThornton@test.com
-                                    </td>
+                                    <td>{{ $emp->first_name }}</td>
+                                    <td>{{ $emp->last_name }}</td>
+                                    <td>{{ $emp->username }}</td>
+                                    <td>{{ $emp->email }}</td>
+                                    <td>{{ $emp->type }}</td>
+                                    <td>{{ $emp->created_by }}</td>
+                                    <td>{{ $emp->verify }}</td>
+                                    <td>Edit | Delete</td>
                                 </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>8.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>11.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>12.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>13.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>14.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>15.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>16.</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>17.</td>
-                                    <td>Larryss</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        Larrythe Bird
-                                    </td>
-                                    <td>
-                                        LarrytheBird@test.com
-                                    </td>
-                                </tr>
+                                @endforeach
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--row end-->
         </section>
+        <!-- content -->
     </aside>
 @endsection
 <!-- begining of page level js -->

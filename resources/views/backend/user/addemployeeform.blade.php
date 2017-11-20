@@ -38,7 +38,7 @@
                                                 </span>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" method="POST" action="{{ route('save-employee') }}">
+                            <form class="form-horizontal" method="POST" action="{{ route('save-employee') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-body">
                                     <div class="form-group pad-top40">
@@ -146,6 +146,12 @@
                                                         </span>
                                                 </div>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">Profile Image</label>
+                                        <div class="col-md-9">
+                                                <input type="file" required name="profile_image">
                                         </div>
                                     </div>
                                     <div class="form-group">

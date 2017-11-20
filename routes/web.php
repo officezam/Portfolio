@@ -13,9 +13,7 @@
 
 Route::get('/', function () {return view('auth.login');});
 
-Route::get('/backend', function () {
-	return view('backend.dashboard');
-});
+Route::get('/backend', function () { return view('backend.dashboard');});
 
 Auth::routes();
 
