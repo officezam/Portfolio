@@ -49,14 +49,21 @@ class EmployeeController extends Controller
 	*/
 	public function showEmployee(){
 
-		$employee = User::where('created_by', Auth()->id())->get();
+		$employee = User::where('created_by', Auth()->id())
+		->where('type', '!=','admin')
+		->where('type', '!=','superuser')->get();
 		return view('backend.user.showemployee',compact('employee'));
 	}
 
 	/*Delete Employee
 	*/
-	public function deleteEmployee($empId ,Request $request){
-		dd($empId);
+	public function deletUser($empId){
+		 User::find($empId)->delete();
+		return redirect()->route('showemployee');
+	}
+	/*Edit Employee */
+	public function EditUser($empId){
+		dd('qq');
 	}
 
 

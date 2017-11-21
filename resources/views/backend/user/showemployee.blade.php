@@ -64,7 +64,10 @@
                                     <td>{{ $emp->type }}</td>
                                     <td>{{ $emp->created_by }}</td>
                                     <td>{{ $emp->verify }}</td>
-                                    <td>Edit | <a href="{{ route('delete-employeee' , $emp->id) }}" > Delete </a></td>
+                                    <td>
+                                        {{--<a href="{{ route('edit-user-data', $emp->id) }}" ><button type="button" class="btn btn-primary">Edit</button></a>--}}
+                                        <a href="{{ route('delete-user-data', $emp->id) }}" ><button type="button" class="btn btn-danger">Delete</button></a>
+                                    </td>
                                 </tr>
                                 @endforeach
 
