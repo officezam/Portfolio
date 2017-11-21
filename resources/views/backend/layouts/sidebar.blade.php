@@ -62,32 +62,20 @@
                 <li>
                     <a href="#">
                         <i class="livicon" data-name="medal" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>
-                        <span class="title">Builders</span>
+                        <span class="title">Members</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="form_builder.html">
+                            <a href="{{ route('add-member-form') }}">
                                 <i class="fa fa-angle-double-right"></i>
-                                Form Builder
+                                Add Member
                             </a>
                         </li>
                         <li>
                             <a href="form_builder2.html">
                                 <i class="fa fa-angle-double-right"></i>
-                                Form Builder 2
-                            </a>
-                        </li>
-                        <li>
-                            <a href="buttonbuilder.html">
-                                <i class="fa fa-angle-double-right"></i>
-                                Button Builder
-                            </a>
-                        </li>
-                        <li>
-                            <a href="gridmanager.html">
-                                <i class="fa fa-angle-double-right"></i>
-                                Page Builder
+                                View Members
                             </a>
                         </li>
                     </ul>
