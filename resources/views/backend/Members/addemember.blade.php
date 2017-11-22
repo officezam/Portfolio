@@ -25,7 +25,128 @@
         </section>
         <section class="content">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Add Member Form</h3>
+                            <span class="pull-right">
+                                                    <i class="fa fa-fw fa-chevron-up clickable"></i>
+                                                    <i class="fa fa-fw fa-times removepanel clickable"></i>
+                                                </span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="firstName">First Name:</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="firstName" placeholder="First Name"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="inputEmail">Email:</label>
+                                            <div class="col-md-9">
+                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="inputPassword">Password:</label>
+                                            <div class="col-md-9">
+                                                <input type="password" class="form-control" id="inputPassword" placeholder="Password"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Date of Birth:</label>
+                                            <div class="col-md-3">
+                                                <select class="form-control">
+                                                    <option>Date</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <select class="form-control">
+                                                    <option>Month</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <select class="form-control">
+                                                    <option>Year</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="ZipCode">Zip Code:</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="ZipCode">City:</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="city" placeholder="City"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <label class="checkbox-inline mar-left5">
+                                                    <input type="checkbox" value="news">Send me latest news and updates.</label>
+                                            </div>
+                                        </div>
 
+                                        <br></form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="lastName">Last Name:</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="lastName" placeholder="Last Name"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="phoneNumber">Phone:</label>
+                                            <div class="col-md-9">
+                                                <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="confirmPassword">Confirm Password:</label>
+                                            <div class="col-md-9">
+                                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3" for="postalAddress">Address:</label>
+                                            <div class="col-md-9">
+                                                <textarea rows="3" class="form-control" id="postalAddress" placeholder="Postal Address"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Gender:</label>
+                                            <div class="col-md-2">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="genderRadios" value="male">Male</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="genderRadios" value="female">Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <label class="checkbox-inline mar-left5">
+                                                    <input type="checkbox" value="agree">
+                                                    I agree to the
+                                                    <a href="#">Terms and Conditions</a>
+                                                    .
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                        <input type="reset" class="btn btn-default" value="Reset"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form class="form-horizontal" method="POST" action="{{ route('save-employee') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-body">
@@ -180,9 +301,6 @@
                             <input type="reset" class="btn btn-danger hidden-xs" value="Reset"></div>
                     </div>
                 </form>
-            </div>
-            </div>
-            </div>
             </div>
             <!--row end-->
         </section>
