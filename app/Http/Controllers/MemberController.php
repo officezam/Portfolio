@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-    //
+
+	public function saveMember(Request $request){
+		dd($request);
+
+	}
 }

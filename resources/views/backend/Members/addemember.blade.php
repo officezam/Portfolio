@@ -43,7 +43,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <form class="form-horizontal" method="POST" action="{{ route('save-employee') }}" enctype="multipart/form-data">
+                                <form class="form-horizontal" method="POST" action="{{ route('save-member') }}" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="col-md-6">
                                         <div class="form-horizontal">
@@ -86,7 +86,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-calendar"></i>
                                                     </div>
-                                                    <input type="text" class="form-control pull-right" id="dob">
+                                                    <input type="text" class="form-control pull-right" id="dob" name="dob" value="">
                                                 </div>
                                                 </div>
 
@@ -109,7 +109,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="ZipCode">Zip Code:</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code"></div>
+                                                    <input type="text" class="form-control" name="ZipCode" id="ZipCode" placeholder="Zip Code"></div>
                                             </div>
                                         </div>
                                     </div>

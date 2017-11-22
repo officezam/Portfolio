@@ -26,5 +26,7 @@ Route::get('Delete-User/{user_id}', 'EmployeeController@deletUser')->name('delet
 Route::get('Edit-User/{user_id}', 'EmployeeController@EditUser')->name('edit-user-data');
 
 Route::get('add-member', function(){return view('backend.Members.addemember');})->name('add-member-form');
+Route::post('save-member', 'MemberController@saveMember')->name('save-member');
+
 
 
