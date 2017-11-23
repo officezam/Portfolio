@@ -252,8 +252,8 @@
 
     <script>
 
-        $('#dob').datepicker();
-        $('#expiration_date').datepicker();
+        $('#dob').datepicker({ dateFormat: 'yy-mm-dd' });
+        $('#expiration_date').datepicker({ dateFormat: 'yy-mm-dd' });
 
         var totalFields = 0;
         function addMoreAnsFields() {

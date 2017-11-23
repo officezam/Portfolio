@@ -27,6 +27,7 @@ Route::get('Edit-User/{user_id}', 'EmployeeController@EditUser')->name('edit-use
 
 Route::get('add-member', function(){return view('backend.Members.addemember');})->name('add-member-form');
 Route::post('save-member', 'MemberController@saveMember')->name('save-member');
+Route::get('show-member', 'MemberController@showMember')->name('showmember');
 
 
 

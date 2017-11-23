@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name', 'username','date_of_birth','type','phone','created_by','verify','address', 'email', 'password','profile_image',
+        'first_name','last_name', 'username','date_of_birth','type','phone','created_by','verify','address', 'email', 'password','profile_image','dob','expiration_date','postalcode','total_members','total_price','membership_number',
     ];
 
     /**
@@ -27,4 +27,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function Members(){
+	    return $this->hasMany('App\Member', 'user_id', 'id');
+    }
+
 }

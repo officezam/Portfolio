@@ -24,6 +24,11 @@ class UsersTableSeeder extends Seeder
 				'email' => 'admin@gmail.com',
 				'password' => bcrypt('123456'),
 				'address' => '',
+				'postalcode' => '',
+				'total_members' => '',
+				'total_price' => '',
+				'membership_number' => '',
+				'expiration_date' => '1993-02-15',
 				'profile_image' => '',
 			]);
 		DB::table('users')->insert(
@@ -39,6 +44,11 @@ class UsersTableSeeder extends Seeder
 				'email' => 'superuser@gmail.com',
 				'password' => bcrypt('123456'),
 				'address' => '',
+				'postalcode' => '',
+				'total_members' => '',
+				'total_price' => '',
+				'membership_number' => '',
+				'expiration_date' => '1993-02-15',
 				'profile_image' => '',
 			]);
 		DB::table('users')->insert(
@@ -54,6 +64,11 @@ class UsersTableSeeder extends Seeder
 				'email' => 'subuser@gmail.com',
 				'password' => bcrypt('123456'),
 				'address' => '',
+				'postalcode' => '',
+				'total_members' => '',
+				'total_price' => '',
+				'membership_number' => '',
+				'expiration_date' => '1993-02-15',
 				'profile_image' => '',
 			]
 		);

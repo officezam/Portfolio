@@ -6,10 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use App\User;
 use Intervention\Image;
+use App\Member;
 
 class MemberController extends Controller
 {
 
+
+	public function showMember(){
+		$member = User::where('created_by', Auth()->id())
+		                ->where('type', '!=','admin')
+		                ->where('type', '!=','superuser')->get();
+		$totalMembers = Member::where('user_id', Auth()->id())->count();
+		dd($member->Members());
+		return view('backend.Members.showmember',compact('member'));
+	}
 	public function saveMember(Request $request){
 
 		$validatedData = $request->validate([
@@ -45,12 +55,24 @@ class MemberController extends Controller
 			'password' => bcrypt($request->password),
 			'remember_token' => $request->_token,
 			'profile_image' => $filename,
+			'postalcode' => $request->postalcode,
+			'total_members' => '',
+			'total_price' => '',
+			'membership_number' => '',
+			'expiration_date' => $request->expiration_date
 		]);
-
 		$id = $userSaved->id;
-		return redirect()->route('showemployee');
-
-		dd($request);
-
+		$count = 0;
+		foreach($request->M_first_name as $key => $value)
+		{
+			Member::create([
+			'user_id' => $id,
+			'first_name' => $request->M_first_name[$count],
+			'middle_name' => $request->M_middle_name[$count],
+			'last_name' => $request->M_last_name[$count]
+			]);
+			$count++;
+		}
+		return redirect()->route('showmember');
 	}
 }
