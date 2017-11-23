@@ -15,6 +15,7 @@
 <!--end of page level css-->
 
 @section('content')
+
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <section class="content-header">
@@ -77,6 +78,13 @@
                                                 <label class="control-label col-md-3" for="inputPassword">Password:</label>
                                                 <div class="col-md-9">
                                                     <input type="password" class="form-control" id="inputPassword" name="password" value="" placeholder="Password">
+                                                    @if ($errors->has('password'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -86,30 +94,42 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-calendar"></i>
                                                     </div>
-                                                    <input type="text" class="form-control pull-right" id="dob" name="dob" value="">
+                                                    <input type="text" class="form-control pull-right" id="dob" name="dob" value="{{ old('dob') }}">
                                                 </div>
+                                                    @if ($errors->has('dob'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('dob') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
-
-                                                {{--<div class="col-md-3">--}}
-                                                    {{--<select class="form-control">--}}
-                                                        {{--<option>Date</option>--}}
-                                                    {{--</select>--}}
-                                                {{--</div>--}}
-                                                {{--<div class="col-md-3">--}}
-                                                    {{--<select class="form-control">--}}
-                                                        {{--<option>Month</option>--}}
-                                                    {{--</select>--}}
-                                                {{--</div>--}}
-                                                {{--<div class="col-md-3">--}}
-                                                    {{--<select class="form-control">--}}
-                                                        {{--<option>Year</option>--}}
-                                                    {{--</select>--}}
-                                                {{--</div>--}}
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="ZipCode">Zip Code:</label>
+                                                <label class="control-label col-md-3" for="inputPassword">Postal Code:</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="ZipCode" id="ZipCode" placeholder="Zip Code"></div>
+                                                    <input type="text" class="form-control" id="postalcode" name="postalcode" value="" placeholder="postal code">
+                                                    @if ($errors->has('password'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('postalcode') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="ZipCode">Profile Image:</label>
+                                                <div class="col-md-9">
+                                                    <input type="file" class="form-control" name="profile_image" name="profile_image" id="profile_image" placeholder="profile Image">
+                                                    @if ($errors->has('profile_image'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('profile_image') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +138,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="lastName">Last Name:</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="last_name" id="lastName" placeholder="Last Name">
+                                                    <input type="text" class="form-control" name="last_name" id="lastName" placeholder="Last Name" value="{{ old('last_name') }}">
                                                     @if ($errors->has('last_name'))
                                                         <div class=" has-error">
                                                         <span class="control-label has-error">
@@ -131,7 +151,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="phoneNumber">Phone:</label>
                                                 <div class="col-md-9">
-                                                    <input type="tel" class="form-control" id="phoneNumber" name="phone" placeholder="Phone Number">
+                                                    <input type="tel" class="form-control" id="phoneNumber" name="phone" placeholder="Phone Number" value="{{ old('phone') }}">
                                                     @if ($errors->has('phone'))
                                                         <div class=" has-error">
                                                         <span class="control-label has-error">
@@ -143,14 +163,47 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="confirmPassword">Confirm Password:</label>
+                                                <label class="control-label col-md-3" for="cpassword">Confirm Password:</label>
                                                 <div class="col-md-9">
-                                                    <input type="password" class="form-control" id="confirmPassword" name="cpassword" placeholder="Confirm Password"></div>
+                                                    <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
+                                                    @if ($errors->has('cpassword'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('cpassword') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Expiration Date:</label>
+                                                <div class="col-md-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control pull-right" id="expiration_date" name="expiration_date" value="{{ old('expiration_date') }}">
+                                                    </div>
+                                                    @if ($errors->has('expiration_date'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('expiration_date') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="postalAddress">Address:</label>
                                                 <div class="col-md-9">
-                                                    <textarea rows="3" class="form-control" id="postalAddress" placeholder="Postal Address"></textarea>
+                                                    <textarea rows="3" name="address" class="form-control" id="postalAddress" placeholder="Postal Address">{{ old('address') }}</textarea>
+                                                    @if ($errors->has('address'))
+                                                        <div class=" has-error">
+                                                        <span class="control-label has-error">
+                                                            <strong>{{ $errors->first('address') }}</strong>
+                                                        </span>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -200,8 +253,7 @@
     <script>
 
         $('#dob').datepicker();
-
-
+        $('#expiration_date').datepicker();
 
         var totalFields = 0;
         function addMoreAnsFields() {
@@ -245,13 +297,13 @@
         function getMemberField(fieldName)
         {
             var html = '';
-            html += '<div class="remove'+totalFields+'">';
+            html += '<div class="clearfix remove'+totalFields+'">';
             html += '<div class="row">';
             html += '<div class="col-md-4">';
             html += '<div class="form-group">';
             html += '<div class="col-md-12">';
             html += '<label class="control-labe" for="firstName">First Name:</label>';
-            html += '<input type="text" name="M_first_name[]" value="" class="form-control" id="M_first_name" placeholder="First Name">';
+            html += '<input type="text" name="M_first_name[]" required value="" class="form-control" id="M_first_name" placeholder="First Name">';
 
             html += '</div>';
             html += '</div>';
@@ -260,7 +312,7 @@
             html += '<div class="form-group">';
             html += '<div class="col-md-12">';
             html += '<label class="control-labe" for="Middle Name">Middle Name:</label>';
-            html += '<input type="text" name="M_middle_name[]" value="" class="form-control" id="M_middle_name" placeholder="Middle Name">';
+            html += '<input type="text" name="M_middle_name[]" required value="" class="form-control" id="M_middle_name" placeholder="Middle Name">';
 
             html += '</div>';
             html += '</div>';
@@ -269,7 +321,7 @@
             html += '<div class="form-group">';
             html += '<div class="col-md-12">';
             html += '<label class="control-labe" for="firstName">Last Name:</label>';
-            html += '<input type="text" name="M_last_name[]" value="" class="form-control" id="M_last_name" placeholder="Last Name">';
+            html += '<input type="text" name="M_last_name[]" required value="" class="form-control" id="M_last_name" placeholder="Last Name">';
             html += '</div>';
             html += '</div>';
             html += '</div>';

@@ -27,6 +27,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('profile_image');
+            $table->string('postalcode');
+            $table->string('total_members');
+            $table->string('total_price');
+            $table->string('membership_number');
+	        $table->date('expiration_date');
 	        $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

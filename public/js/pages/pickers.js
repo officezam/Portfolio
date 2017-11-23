@@ -70,7 +70,12 @@ $('.form_datetime').datetimepicker({
     forceParse: 0,
     showMeridian: 1
 });
-
+$("#expiration_date").datetimepicker({
+    format: "dd MM yyyy - hh:ii"
+});
+$("#dob").datetimepicker({
+    format: "dd MM yyyy - hh:ii"
+});
 $(".form_datetime0").datetimepicker({
     format: "dd MM yyyy - hh:ii"
 });
