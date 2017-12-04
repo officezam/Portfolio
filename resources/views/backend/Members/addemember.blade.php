@@ -22,7 +22,7 @@
             <h1>Register New Member</h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         <i class="livicon" data-name="home" data-size="16" data-color="#000"></i>
                         Dashboard
                     </a>

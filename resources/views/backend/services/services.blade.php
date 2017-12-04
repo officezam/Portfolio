@@ -45,6 +45,7 @@
                         </div>
 
                         <div class="panel-body">
+
                             <table class="table table-striped table-responsive" id="table1">
                                 <thead>
                                 <tr>
@@ -60,13 +61,13 @@
                                     <tr class="gradeX">
                                         <td>{{++$counter}} </td>
                                         <td>{{$value->title}} </td>
-                                        <td>{{$value->description }}</td>
-                                        <td>{{$value->icon}} </td>
+                                        <td><?php echo $value->description ?></td>
+                                        <td><?php echo $value->icon ?>  </td>
                                         <td>
                                         <!-- <a href="{{ url('/customers/' . $value->id . '/edit') }}">
                                                 <i class="ace-icon fa fa-pencil icon-only"></i>
                                             </a> |  -->
-                                            <a href="{{ url('/backend/slider/' . $value->id . '/delete') }}">
+                                            <a href="{{ url('/backend/service/' . $value->id . '/delete') }}">
                                                 <i class="ace-icon fa fa-trash-o fa-2x icon-only"></i>
                                             </a>
                                         </td>

@@ -81,27 +81,27 @@
                 </li>
 
 
-                <li>
-                    <a href="#">
-                        <i class="livicon" data-name="medal" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>
-                        <span class="title">Members</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="{{ route('add-member-form') }}">
-                                <i class="fa fa-angle-double-right"></i>
-                                Add Member
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('showmember') }}">
-                                <i class="fa fa-angle-double-right"></i>
-                                View Members
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="#">--}}
+                        {{--<i class="livicon" data-name="medal" data-size="18" data-c="#00bc8c" data-hc="#00bc8c" data-loop="true"></i>--}}
+                        {{--<span class="title">Members</span>--}}
+                        {{--<span class="fa arrow"></span>--}}
+                    {{--</a>--}}
+                    {{--<ul class="sub-menu">--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ route('add-member-form') }}">--}}
+                                {{--<i class="fa fa-angle-double-right"></i>--}}
+                                {{--Add Member--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ route('showmember') }}">--}}
+                                {{--<i class="fa fa-angle-double-right"></i>--}}
+                                {{--View Members--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li>
                     <a href="javascript:;" class="infoborder">
                         <i class="livicon" data-name="doc-portrait" data-c="#5bc0de" data-hc="#5bc0de" data-size="18" data-loop="true"></i>

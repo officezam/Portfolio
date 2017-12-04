@@ -31,4 +31,38 @@ class ServicesController extends Controller
 		return view('backend.services.add_service' );
 	}
 
+	/*
+	 * Service Save
+	 * */
+	public function store(Request $request)
+	{
+		// place for validation
+		$this->validate( $request, [
+			'title'       => 'required',
+			'icon'       => 'required',
+			'description' => 'required',
+		] );
+		// insert
+		$service              = new service();
+		$service->title       = $request->title;
+		$service->icon       = $request->icon;
+		$service->description = $request->description;
+		$service->save();
+		// set success message
+		$request->session()->flash( 'alert-success', 'Content has been saved successfully!' );
+
+		// redirect back
+		return redirect()->back();
+	}
+
+	public function destroy($id){
+		$user = service::find($id);
+		$user->delete();
+
+		// set success message
+		\Request::session()->flash('alert-success', 'Service has been deleted successfully!');
+
+		// redirect back
+		return redirect('backend/service');
+	}
 }
