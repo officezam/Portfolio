@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
 	{
 		DB::table('users')->insert(
 			[
-				'first_name' => 'Ghazanfar',
-				'last_name' => 'Rehman',
+				'first_name' => 'Admin',
+				'last_name' => 'User',
 				'username' => 'Admin',
 				'date_of_birth' => '1993-02-15',
 				'type' => 'admin',
