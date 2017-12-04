@@ -24,7 +24,7 @@
 
         // CKEditor Full
         $('textarea#ckeditor_full').ckeditor({
-            height: '200px'
+            height: '400px'
         });
 
         // The "instanceCreated" event is fired for every editor instance created.
