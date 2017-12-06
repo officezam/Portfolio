@@ -64,9 +64,9 @@
                                         <td><?php echo $value->description ?></td>
                                         <td><?php echo $value->icon ?>  </td>
                                         <td>
-                                        <!-- <a href="{{ url('/customers/' . $value->id . '/edit') }}">
-                                                <i class="ace-icon fa fa-pencil icon-only"></i>
-                                            </a> |  -->
+                                         <a href="{{ url('/backend/service/' . $value->id . '/edit') }}">
+                                                <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
+                                            </a> |
                                             <a href="{{ url('/backend/service/' . $value->id . '/delete') }}">
                                                 <i class="ace-icon fa fa-trash-o fa-2x icon-only"></i>
                                             </a>

@@ -56,13 +56,19 @@ class ServicesController extends Controller
 	}
 
 	public function destroy($id){
-		$user = service::find($id);
-		$user->delete();
+		$service = service::find($id);
+		$service->delete();
 
 		// set success message
 		\Request::session()->flash('alert-success', 'Service has been deleted successfully!');
 
 		// redirect back
 		return redirect('backend/service');
+	}
+
+
+	public function edit($id){
+		$service = service::find($id);
+		return redirect('backend/edit_service', compact('service'));
 	}
 }

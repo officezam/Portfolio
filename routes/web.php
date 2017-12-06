@@ -51,6 +51,7 @@ Route::group(array('prefix' => 'backend'), function ()
 	Route::get('add-service', 'ServicesController@addService')->name('add-service');
 	Route::post('save-service', 'ServicesController@store')->name('save_service');
 	Route::get('service/{service_id}/delete', 'ServicesController@destroy');
+	Route::get('service/{service_id}/edit', 'ServicesController@edit');
 
 
 
