@@ -71,40 +71,38 @@
 
                                             <!-- Make an div for show icon-->
                                             <div id="view-fa"></div>
-
-
                                             <div class="fac fac-checkbox fac-default ">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-diamond text-danger mb-3 sr-icons" data-sr-id="2" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-diamond' >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-diamond text-danger mb-3 sr-icons" data-sr-id="2" ></i>
+                                                    <i class="fa fa-4x fa-diamond text-primary" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-paper-plane text-danger mb-3 sr-icons" data-sr-id="3" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-paper-plane' >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-paper-plane text-danger mb-3 sr-icons" data-sr-id="3" ></i>
+                                                    <i class="fa fa-4x fa-paper-plane text-danger" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-newspaper-o text-danger mb-3 sr-icons" data-sr-id="4" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-newspaper-o' >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-newspaper-o text-danger mb-3 sr-icons" data-sr-id="4" ></i>
+                                                    <i class="fa fa-4x fa-newspaper-o text-danger" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-heart text-danger mb-3 sr-icons" data-sr-id="5" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-heart' >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-heart text-danger mb-3 sr-icons" data-sr-id="5" ></i>
+                                                    <i class="fa fa-4x fa-heart text-danger" ></i>
                                                 </label>
                                             </div>
                                             @if( $errors->has('icon'))

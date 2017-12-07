@@ -50,9 +50,9 @@
                             @endif
 
                             <div class="row">
-                                <form action="{{route('save_service')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
-
+                                <form action="{{route('update_service')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                                     {{ csrf_field() }}
+                                    <input type="hidden" name="id" value='{{ $service->id }}' >
 
                                     {{--Twilio Authentication Token--}}
                                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -71,40 +71,38 @@
 
                                             <!-- Make an div for show icon-->
                                             <div id="view-fa"></div>
-
-
                                             <div class="fac fac-checkbox fac-default ">
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-diamond text-danger mb-3 sr-icons" data-sr-id="2" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-diamond' @if($service->icon == 'fa-diamond') checked @endif >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-diamond text-danger mb-3 sr-icons" data-sr-id="2" ></i>
+                                                    <i class="fa fa-4x fa-diamond text-primary" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-paper-plane text-danger mb-3 sr-icons" data-sr-id="3" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-paper-plane' @if($service->icon =='fa-paper-plane') checked @endif >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-paper-plane text-danger mb-3 sr-icons" data-sr-id="3" ></i>
+                                                    <i class="fa fa-4x fa-paper-plane text-danger" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-newspaper-o text-danger mb-3 sr-icons" data-sr-id="4" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-newspaper-o' @if($service->icon =='fa-newspaper-o') checked @endif >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-newspaper-o text-danger mb-3 sr-icons" data-sr-id="4" ></i>
+                                                    <i class="fa fa-4x fa-newspaper-o text-danger" ></i>
                                                 </label>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
                                                 <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='<i class="fa fa-4x fa-heart text-danger mb-3 sr-icons" data-sr-id="5" ></i>' >
+                                                <input id="box-example" type="radio" name="icon" value='fa-heart' @if($service->icon =='fa-heart') checked @endif >
                                                 <label for="box-example">
-                                                    <i class="fa fa-4x fa-heart text-danger mb-3 sr-icons" data-sr-id="5" ></i>
+                                                    <i class="fa fa-4x fa-heart text-danger" ></i>
                                                 </label>
                                             </div>
                                             @if( $errors->has('icon'))
@@ -112,10 +110,6 @@
                                             @endif
                                         </div>
                                     </div>
-
-
-
-
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">

@@ -69,6 +69,30 @@ class ServicesController extends Controller
 
 	public function edit($id){
 		$service = service::find($id);
-		return redirect('backend/edit_service', compact('service'));
+		return view('backend.services.edit_service', compact('service'));
 	}
+	/*
+	 * Service Save
+	 * */
+	public function update(Request $request)
+	{
+		// place for validation
+		$this->validate( $request, [
+			'title'       => 'required',
+			'icon'       => 'required',
+			'description' => 'required',
+		] );
+		// update
+		$service = new service();
+		$service->where('id', $request->id)
+		->update(['title'  => $request->title,'icon' => $request->icon,'description' => $request->description]);
+		// set success message
+		$request->session()->flash( 'alert-success', 'Content has been updated successfully!' );
+
+		// redirect back
+		return redirect()->back();
+	}
+
+
+
 }
