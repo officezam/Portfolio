@@ -5,9 +5,14 @@
     <!--page level css -->
     <link href="{{ asset('vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/stylesheets/bootstrap-wysihtml5/core-b3.css') }}"  rel="stylesheet" media="screen"/>
     <link href="{{ asset('vendors/font-awesome-4.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-
     <link href="{{ asset('css/pages/editor.css') }}" rel="stylesheet" type="text/css"/>
 
+    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
+    {{--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">--}}
+    <link href="{{ asset('dist/css/fontawesome-iconpicker.min.css')}}" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <!--end of page level css-->
 @endsection
 <!--end of page level css-->
@@ -69,6 +74,18 @@
                                         <label for="image" class="col-sm-2 control-label">Services Icon</label>
                                         <div class="col-sm-8">
 
+                                            <p class="lead">
+                                                <i class="fa fa-graduation-cap fa-3x picker-target"></i>
+                                            </p>
+                                            <div class="form-group">
+                                                <label>As a component</label>
+
+                                                <div class="input-group">
+                                                    <input data-placement="bottomRight" class="form-control icp-opts icp icp-auto" value="fa-archive" type="text" />
+                                                    <span class="input-group-addon"></span>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-default action-create hide">Create instances</button>
                                             <!-- Make an div for show icon-->
                                             <div id="view-fa"></div>
                                             <div class="fac fac-checkbox fac-default ">
@@ -154,6 +171,7 @@
 @endsection
 <!-- begining of page level js -->
 @section('pagejs')
+
     <!-- Bootstrap WYSIHTML5 -->
     <script  src="{{ asset('vendors/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
     <script  src="{{ asset('vendors/ckeditor/adapters/jquery.js')}}" type="text/javascript" ></script>
@@ -161,5 +179,87 @@
     <script  src="{{ asset('vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/javascripts/bootstrap-wysihtml5/wysihtml5.js')}}" type="text/javascript"></script>
     <script  src="{{ asset('vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/javascripts/bootstrap-wysihtml5/core-b3.js')}}" type="text/javascript"></script>
     <script  src="{{ asset('js/pages/editor.js')}}" type="text/javascript"></script>
+
+    {{--<script src="//code.jquery.com/jquery-2.2.1.min.js"></script>--}}
+    {{--<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
+    <script src="{{ asset('dist/js/fontawesome-iconpicker.js')}}"></script>
+    <script>
+        $(function() {
+            // Live binding of buttons
+            $(document).on('click', '.action-placement', function(e) {
+                e.preventDefault();
+                $('.action-placement').removeClass('active');
+                $(this).addClass('active');
+                $('.icp-opts').data('iconpicker').updatePlacement($(this).text());
+                e.preventDefault();
+                return false;
+            });
+            $('.action-create').on('click', function() {
+                $('.icp-auto').iconpicker();
+
+                $('.icp-dd').iconpicker({
+                    //title: 'Dropdown with picker',
+                    //component:'.btn > i'
+                });
+
+                $('.icp-glyphs').iconpicker({
+                    title: 'Prepending glypghicons',
+                    icons: $.merge(['glyphicon-home', 'glyphicon-repeat', 'glyphicon-search',
+                        'glyphicon-arrow-left', 'glyphicon-arrow-right', 'glyphicon-star'], $.iconpicker.defaultOptions.icons),
+                    fullClassFormatter: function(val){
+                        if(val.match(/^fa-/)){
+                            return 'fa '+val;
+                        }else{
+                            return 'glyphicon '+val;
+                        }
+                    }
+                });
+                $('.icp-opts').iconpicker({
+                    title: 'With custom options',
+                    icons: ['fa-github', 'fa-heart', 'fa-html5', 'fa-css3'],
+                    selectedCustomClass: 'label label-success',
+                    mustAccept: true,
+                    placement: 'bottomRight',
+                    showFooter: true,
+                    // note that this is ignored cause we have an accept button:
+                    hideOnSelect: true,
+                    templates: {
+                        footer: '<div class="popover-footer">' +
+                        '<div style="text-align:left; font-size:12px;">Placements: \n\
+        <a href="#" class=" action-placement">inline</a>\n\
+        <a href="#" class=" action-placement">topLeftCorner</a>\n\
+        <a href="#" class=" action-placement">topLeft</a>\n\
+        <a href="#" class=" action-placement">top</a>\n\
+        <a href="#" class=" action-placement">topRight</a>\n\
+        <a href="#" class=" action-placement">topRightCorner</a>\n\
+        <a href="#" class=" action-placement">rightTop</a>\n\
+        <a href="#" class=" action-placement">right</a>\n\
+        <a href="#" class=" action-placement">rightBottom</a>\n\
+        <a href="#" class=" action-placement">bottomRightCorner</a>\n\
+        <a href="#" class=" active action-placement">bottomRight</a>\n\
+        <a href="#" class=" action-placement">bottom</a>\n\
+        <a href="#" class=" action-placement">bottomLeft</a>\n\
+        <a href="#" class=" action-placement">bottomLeftCorner</a>\n\
+        <a href="#" class=" action-placement">leftBottom</a>\n\
+        <a href="#" class=" action-placement">left</a>\n\
+        <a href="#" class=" action-placement">leftTop</a>\n\
+        </div><hr></div>'}
+                }).data('iconpicker').show();
+            }).trigger('click');
+
+
+            // Events sample:
+            // This event is only triggered when the actual input value is changed
+            // by user interaction
+            $('.icp').on('iconpickerSelected', function(e) {
+                $('.lead .picker-target').get(0).className = 'picker-target fa-3x ' +
+                    e.iconpickerInstance.options.iconBaseClass + ' ' +
+                    e.iconpickerInstance.options.fullClassFormatter(e.iconpickerValue);
+            });
+        });
+    </script>
+
+
+
 @endsection
 <!-- end of page level js -->
