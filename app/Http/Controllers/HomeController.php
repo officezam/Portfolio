@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Slider;
 use App\service;
+use App\Portfolio;
 
 class HomeController extends Controller
 {
@@ -16,8 +17,9 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
-	    $this->slider  = new Slider();
-	    $this->service = new service();
+	    $this->slider    = new Slider();
+	    $this->service   = new service();
+	    $this->portfolio = new Portfolio();
     }
 
     /**
@@ -27,10 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-	    $counter  = 0;
-	    $sliders  = $this->slider->get();
+	    $counter   = 0;
+	    $sliders   = $this->slider->get();
 	    $services  = $this->service->get();
-	    return view('index', compact('sliders','counter','services'));
+	    $portfolio = $this->portfolio->get();
+	    return view('index', compact('sliders','counter','services','portfolio'));
     }
 
 	/**

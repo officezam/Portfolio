@@ -20,7 +20,15 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             return redirect('/backend');
         }
+	    return $next($request);
 
-        return $next($request);
+//	    if(Auth::user()){
+//		    return $next($request);
+//	    } else {
+//		    return redirect('backend');
+//		    //return view('admin/login');
+//		    //return response('Unauthorized.', 401);
+//	    }
+
     }
 }
