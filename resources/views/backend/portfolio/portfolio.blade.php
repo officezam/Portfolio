@@ -15,7 +15,7 @@
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <section class="content-header">
-            <h1>Manage All Services</h1>
+            <h1>Manage All Portfolio</h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="/backend">
@@ -23,7 +23,7 @@
                         Dashboard
                     </a>
                 </li>
-                <li class="active">Manage All Services</li>
+                <li class="active">Manage All Portfolio</li>
             </ol>
         </section>
         <section class="content">
@@ -34,13 +34,13 @@
                             <div class="panel-title pull-left">
                                 <div class="caption">
                                     <i class="livicon"  data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                    Services
+                                    Portfolio
                                 </div>
                             </div>
                             <div class="panel-title pull-right">
                                 <div class="caption">
                                     <a href="{{route('add-portfolio')}}">
-                                        <button class="btn btn-success pull-right">Add Service</button>
+                                        <button class="btn btn-success pull-right">Add Portfolio</button>
                                     </a>
                                 </div>
                             </div>
