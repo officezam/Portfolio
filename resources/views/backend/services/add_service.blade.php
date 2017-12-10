@@ -4,14 +4,14 @@
 @section('pagecss')
     <!--page level css -->
     <link href="{{ asset('vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/stylesheets/bootstrap-wysihtml5/core-b3.css') }}"  rel="stylesheet" media="screen"/>
-    <link href="{{ asset('vendors/font-awesome-4.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+{{--    <link href="{{ asset('vendors/font-awesome-4.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />--}}
     <link href="{{ asset('css/pages/editor.css') }}" rel="stylesheet" type="text/css"/>
 
-    {{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--}}
-    {{--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">--}}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('dist/css/fontawesome-iconpicker.min.css')}}" rel="stylesheet">
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9] -->
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <!--end of page level css-->
 @endsection
@@ -63,65 +63,42 @@
                                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                         <label for="twilio_auth_token" class="col-sm-2 control-label">Service Title</label>
                                         <div class="col-sm-8">
-                                            <input id="title" type="text" name="title" class="form-control" value="{{$settings->title or old('title')}}">
+                                            <input id="title" type="text" name="title" class="form-control" placeholder="Enter Service Title" value="{{$settings->title or old('title')}}">
                                             @if( $errors->has('title'))
                                                 <span class="help-block m-b-none">{{ $errors->first('title') }}.</span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
+                                    <div class="form-group{{ $errors->has('short_desc') ? ' has-error' : '' }}">
+                                        <label for="twilio_auth_token" class="col-sm-2 control-label">Services Short Description</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="Enter Service Short Description" name="short_desc" rows="3">{{$settings->short_desc or old('short_desc')}}</textarea>
+                                            @if( $errors->has('short_desc'))
+                                                <span class="help-block m-b-none">{{ $errors->first('short_desc') }}.</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+
                                     <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                         <label for="image" class="col-sm-2 control-label">Services Icon</label>
                                         <div class="col-sm-8">
 
-                                            <p class="lead">
-                                                <i class="fa fa-graduation-cap fa-3x picker-target"></i>
-                                            </p>
+                                            {{--<p class="lead">--}}
+                                            {{--<i class="fa fa-graduation-cap fa-3x picker-target"></i>--}}
+                                            {{--</p>--}}
                                             <div class="form-group">
-                                                <label>As a component</label>
+                                                <label>Click to select Icon</label>
 
                                                 <div class="input-group">
-                                                    <input data-placement="bottomRight" class="form-control icp-opts icp icp-auto" value="fa-archive" type="text" />
+                                                    <input data-placement="bottomRight" readonly name="icon" class="form-control icp-opts icp icp-auto" value="fa-archive" type="text" />
                                                     <span class="input-group-addon"></span>
                                                 </div>
                                             </div>
                                             <button class="btn btn-default action-create hide">Create instances</button>
                                             <!-- Make an div for show icon-->
                                             <div id="view-fa"></div>
-                                            <div class="fac fac-checkbox fac-default ">
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='fa-diamond' >
-                                                <label for="box-example">
-                                                    <i class="fa fa-4x fa-diamond text-primary" ></i>
-                                                </label>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='fa-paper-plane' >
-                                                <label for="box-example">
-                                                    <i class="fa fa-4x fa-paper-plane text-danger" ></i>
-                                                </label>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='fa-newspaper-o' >
-                                                <label for="box-example">
-                                                    <i class="fa fa-4x fa-newspaper-o text-danger" ></i>
-                                                </label>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <span></span>
-                                                <input id="box-example" type="radio" name="icon" value='fa-heart' >
-                                                <label for="box-example">
-                                                    <i class="fa fa-4x fa-heart text-danger" ></i>
-                                                </label>
-                                            </div>
                                             @if( $errors->has('icon'))
                                                 <span class="help-block m-b-none">{{ $errors->first('icon') }}.</span>
                                             @endif
@@ -130,27 +107,46 @@
 
 
 
-
-
                                     <div class="hr-line-dashed"></div>
-                                    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                        <label for="twilio_auth_token" class="col-sm-2 control-label">Service Description</label>
-                                        <div class="col-sm-12">
-                                            <div class="row">
-                                                <div class="panel panel-success">
-                                                    <div class="panel-heading">
-                                                        <div class="text-muted bootstrap-admin-box-title editor-clr">
-                                                            <i class="livicon" data-name="thermo-down" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                                            CKEditor Full
-                                                        </div>
-                                                    </div>
-                                                    <div class="bootstrap-admin-panel-content">
-                                                        <textarea id="ckeditor_full" name="description"></textarea>
-                                                    </div>
+                                    <div class="row pd-15">
+                                        <div class='col-lg-12'>
+                                            <!-- /.box -->
+                                            <div class='box well well-sm'>
+                                                <div class='box-header'>
+                                                    <h3 class='box-title text-info'>
+                                                        Service Detail Description
+                                                        <small>For detailed page</small>
+                                                    </h3>
+                                                    <!-- tools box -->
+                                                    <div class="pull-right box-tools"></div>
+                                                    <!-- /. tools -->
+                                                </div>
+                                                <!-- /.box-header -->
+                                                <div class='box-body pad'>
+                                                        <textarea class="textarea editor-cls" name="description" placeholder="Write Service Detail"></textarea>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- /.col-->
                                     </div>
+                                    {{--<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">--}}
+                                        {{--<label for="twilio_auth_token" class="col-sm-2 control-label">Service Description</label>--}}
+                                        {{--<div class="col-sm-12">--}}
+                                            {{--<div class="row">--}}
+                                                {{--<div class="panel panel-success">--}}
+                                                    {{--<div class="panel-heading">--}}
+                                                        {{--<div class="text-muted bootstrap-admin-box-title editor-clr">--}}
+                                                            {{--<i class="livicon" data-name="thermo-down" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>--}}
+                                                            {{--CKEditor Full--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="bootstrap-admin-panel-content">--}}
+                                                        {{--<textarea id="ckeditor_full" name="description"></textarea>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group">
@@ -245,6 +241,7 @@
         <a href="#" class=" action-placement">leftTop</a>\n\
         </div><hr></div>'}
                 }).data('iconpicker').show();
+                e.preventDefault();
             }).trigger('click');
 
 

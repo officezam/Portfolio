@@ -40,12 +40,14 @@ class ServicesController extends Controller
 		$this->validate( $request, [
 			'title'       => 'required',
 			'icon'       => 'required',
+			'short_desc'       => 'required',
 			'description' => 'required',
 		] );
 		// insert
 		$service              = new service();
 		$service->title       = $request->title;
 		$service->icon       = $request->icon;
+		$service->short_desc       = $request->short_desc;
 		$service->description = $request->description;
 		$service->save();
 		// set success message
@@ -80,17 +82,18 @@ class ServicesController extends Controller
 		$this->validate( $request, [
 			'title'       => 'required',
 			'icon'       => 'required',
+			'short_desc'       => 'required',
 			'description' => 'required',
 		] );
 		// update
 		$service = new service();
 		$service->where('id', $request->id)
-		->update(['title'  => $request->title,'icon' => $request->icon,'description' => $request->description]);
+		->update(['title'  => $request->title,'icon' => $request->icon,'description' => $request->description,'short_desc' => $request->short_desc]);
 		// set success message
 		$request->session()->flash( 'alert-success', 'Content has been updated successfully!' );
 
 		// redirect back
-		return redirect()->back();
+		return redirect(route('service'));
 	}
 
 

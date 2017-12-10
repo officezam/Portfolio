@@ -16,6 +16,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
 	        $table->string('title');
+	        $table->text('short_desc');
 	        $table->string('icon');
 	        $table->longText('description');
 	        $table->softDeletes();

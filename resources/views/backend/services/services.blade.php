@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/datatables/css/dataTables.scroller.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
     <link href="{{ asset('css/pages/tables.css')}}" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 @endsection
 <!--end of page level css-->
 
@@ -45,14 +47,20 @@
                         </div>
 
                         <div class="panel-body">
-
+                            @if (Session::has('alert-success'))
+                                <div class="col-xs-12">
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {!! Session::get('alert-success') !!}</div>
+                                </div>
+                            @endif
                             <table class="table table-striped table-responsive" id="table1">
                                 <thead>
                                 <tr>
                                     <th>Sr No</th>
                                     <th>Title</th>
-                                    <th>Descrition</th>
-                                    <th>Image</th>
+                                    <th>Short Descrition</th>
+                                    <th>Icon</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -61,8 +69,10 @@
                                     <tr class="gradeX">
                                         <td>{{++$counter}} </td>
                                         <td>{{$value->title}} </td>
-                                        <td><?php echo $value->description ?></td>
-                                        <td><?php echo $value->icon ?>  </td>
+                                        <td><?php echo $value->short_desc ?></td>
+                                        <td>
+                                            <i class="ace-icon fa {{ $value->icon }} fa-2x icon-only"></i>
+                                             </td>
                                         <td>
                                          <a href="{{ url('/backend/service/' . $value->id . '/edit') }}">
                                                 <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
@@ -79,8 +89,8 @@
                                 <tr>
                                     <th>Sr No</th>
                                     <th>Title</th>
-                                    <th>Descrition</th>
-                                    <th>Image</th>
+                                    <th>Short Descrition</th>
+                                    <th>Icon</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>
