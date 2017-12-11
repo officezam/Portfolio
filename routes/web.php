@@ -14,11 +14,17 @@
 
 
 
+Route::get('/', 'HomeController@index');
+Route::get('blogs', 'HomeController@blog')->name('blog');
+Route::get('blogs/{blog_id}/{title}', 'HomeController@blogDetail');
+
+
+
 Route::group(array('prefix' => 'backend'), function ()
 {
-	Auth::routes();
-//	Route::get( '/', function () {return view( 'auth.login' );	} );
 
+	Route::get( '/', function () {return view( 'auth.login' );	} );
+	Auth::routes();
 	Route::group(['middleware' => ['auth']], function() {
 
 		Route::get( 'dashboard', function (){return view( 'backend.dashboard' ); });
@@ -66,7 +72,7 @@ Route::group(array('prefix' => 'backend'), function ()
 		/*
 		* Blog Page Route
 		*/
-		Route::get( 'blog', 'BlogController@index' )->name( 'backend-blog' );
+		Route::get( 'blog-manage', 'BlogController@index' )->name( 'backend-blog' );
 		Route::get( 'add-blog', 'BlogController@addService' )->name( 'add-blog' );
 		Route::post( 'save-blog', 'BlogController@store' )->name( 'save_blog' );
 		Route::get( 'blog/{blog_id}/delete', 'BlogController@destroy' );
@@ -79,9 +85,6 @@ Route::group(array('prefix' => 'backend'), function ()
 
 });
 
-Route::get('/', 'HomeController@index');
-Route::get('/blog', 'HomeController@blog')->name('blog');
-Route::get('/blog/name', 'HomeController@blogDetail')->name('blog_detail');
 
 
 

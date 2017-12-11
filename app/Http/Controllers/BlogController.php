@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\Http\Controllers\DashboardController;
 
+
 class BlogController extends Controller
 {
 	public function __construct() {
 
 		$this->blog = new Blog();
+		$this->dashboard = new DashboardController();
 	}
 
 	/*
@@ -51,6 +53,8 @@ class BlogController extends Controller
 			\Image::make($file->getRealPath())->resize(700, 400)->save($thumnail);
 			$fullsize = public_path('blog/fullsize/' . $filename);
 			\Image::make($file->getRealPath())->resize(900, 433)->save($fullsize);
+			$fullsize = public_path('blog/sidebar/' . $filename);
+			\Image::make($file->getRealPath())->resize(250, 150)->save($fullsize);
 		}
 
 		$this->blog->title       = $request->title;
@@ -100,11 +104,13 @@ class BlogController extends Controller
 
 			$filename  = time() . '.' . $file->getClientOriginalExtension();
 			$thumnail = public_path('blog/thumbnail/' . $filename);
-			DashboardController::destroy(public_path('blog/thumbnail/'.$oldFileName));
+			$this->dashboard->destroy(public_path('blog/thumbnail/'.$oldFileName));
 			\Image::make($file->getRealPath())->resize(700, 400)->save($thumnail);
 			$fullsize = public_path('blog/fullsize/' . $filename);
+			$this->dashboard->destroy(public_path('blog/fullsize/'.$oldFileName));
 			\Image::make($file->getRealPath())->resize(900, 433)->save($fullsize);
 			$fullsize = public_path('blog/sidebar/' . $filename);
+			$this->dashboard->destroy(public_path('blog/sidebar/'.$oldFileName));
 			\Image::make($file->getRealPath())->resize(250, 150)->save($fullsize);
 		}
 		// update

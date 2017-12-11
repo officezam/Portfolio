@@ -71,7 +71,7 @@
                                     <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
                                         <label for="portfolio image" class="col-sm-2 control-label">Old Image</label>
                                         <div class="col-sm-8">
-                                            <img src="{{ asset('portfolio/fullsize/'.$blog->icon) }}"  >
+                                            <img src="{{ asset('blog/thumbnail/'.$blog->icon) }}"  >
                                         </div>
                                     </div>
                                     <div class="form-group{{ $errors->has('icon') ? ' has-error' : '' }}">
@@ -109,7 +109,7 @@
                                                 </div>
                                                 <!-- /.box-header -->
                                                 <div class='box-body pad'>
-                                                        <textarea class="textarea editor-cls" name="description" placeholder="Write Blog Detail">{{ $blog->description }}</textarea>
+                                                        <textarea class="textarea editor-cls" name="description" style="height: 300px" placeholder="Write Blog Detail">{{ $blog->description }}</textarea>
                                                 </div>
                                             </div>
                                         </div>

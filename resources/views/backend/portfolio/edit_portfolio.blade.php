@@ -87,7 +87,7 @@
                                     <div class="form-group{{ $errors->has('short_desc') ? ' has-error' : '' }}">
                                         <label for="twilio_auth_token" class="col-sm-2 control-label">Portfolio  Short Description</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" placeholder="Enter Portfolio Short Description" name="short_desc" rows="3">{{$portfolio->short_desc or old('short_desc')}}</textarea>
+                                            <textarea style="height: 300px" class="form-control" placeholder="Enter Portfolio Short Description" name="short_desc" rows="3">{{$portfolio->short_desc or old('short_desc')}}</textarea>
                                             @if( $errors->has('short_desc'))
                                                 <span class="help-block m-b-none">{{ $errors->first('short_desc') }}.</span>
                                             @endif

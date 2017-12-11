@@ -92,14 +92,18 @@ class PortfolioController extends Controller
 			'short_desc'       => 'required',
 			'description' => 'required',
 		] );
-
+		$oldFileName = $request->icon_old;
 		$filename = '';
 		if ($request->hasFile('icon')) {
 			$file = $request->icon;
 			$filename  = time() . '.' . $file->getClientOriginalExtension();
 			$thumnail = public_path('portfolio/thumbnail/' . $filename);
+			DashboardController::destroy(public_path('blog/thumbnail/'.$oldFileName));
+
 			\Image::make($file->getRealPath())->resize(659, 350)->save($thumnail);
 			$fullsize = public_path('portfolio/fullsize/' . $filename);
+			DashboardController::destroy(public_path('blog/fullsize/'.$oldFileName));
+
 			\Image::make($file->getRealPath())->resize(650, 350)->save($fullsize);
 		}
 		// update

@@ -123,7 +123,7 @@
                                                 </div>
                                                 <!-- /.box-header -->
                                                 <div class='box-body pad'>
-                                                        <textarea class="textarea editor-cls" name="description" placeholder="Write Service Detail"></textarea>
+                                                        <textarea style="height: 300px" class="textarea editor-cls" name="description" placeholder="Write Service Detail"></textarea>
                                                 </div>
                                             </div>
                                         </div>

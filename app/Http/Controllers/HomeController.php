@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Slider;
 use App\service;
 use App\Portfolio;
+use App\Blog;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,7 @@ class HomeController extends Controller
 	    $this->slider    = new Slider();
 	    $this->service   = new service();
 	    $this->portfolio = new Portfolio();
+	    $this->blog      = new Blog();
     }
 
     /**
@@ -43,7 +45,8 @@ class HomeController extends Controller
 	 */
 	public function blog()
 	{
-		return view('blog');
+		$blogData = $this->blog->get();
+		return view('blog' , compact('blogData'));
 	}
 
 
@@ -52,9 +55,10 @@ class HomeController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function blogDetail()
+	public function blogDetail($id)
 	{
-		return view('blog_detail');
+		$blogData = $this->blog->where('id',$id)->get();
+		return view('blog_detail' , compact('blogData'));
 	}
 
 
