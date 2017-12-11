@@ -57,7 +57,7 @@ class HomeController extends Controller
 	 */
 	public function blogDetail($id)
 	{
-		$blogData = $this->blog->where('id',$id)->get();
+		$blogData = $this->blog->find($id);
 		return view('blog_detail' , compact('blogData'));
 	}
 

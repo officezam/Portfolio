@@ -89,7 +89,7 @@
                 <!-- Preview Image -->
                 <img class="img-fluid rounded" src="{{ asset('blog/fullsize/'.$blogData->icon) }}" alt="{{ $blogData->title }}">
 
-                <hr>
+                {{--<hr>--}}
 
                 <!-- Post Content -->
                 {{--<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>--}}
@@ -109,7 +109,7 @@
 
                 {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>--}}
 
-                <hr>
+                {{--<hr>--}}
 
                 {{--<!-- Comments Form -->--}}
                 {{--<div class="card my-4">--}}
