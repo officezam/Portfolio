@@ -17,7 +17,7 @@ class PortfolioController extends Controller
 	*/
 	public function index()
 	{
-		$Date  = $this->portfolio::get();
+		$Date  = $this->portfolio->get();
 		$counter  = 0;
 		return view('backend.portfolio.portfolio' , compact('Date', 'counter'));
 	}
@@ -46,7 +46,7 @@ class PortfolioController extends Controller
 		if ($request->hasFile('icon')) {
 			$file = $request->icon;
 			$filename  = time() . '.' . $file->getClientOriginalExtension();
-			$thumnail = public_path('portfolio/thumnail/' . $filename);
+			$thumnail = public_path('portfolio/thumbnail/' . $filename);
 			\Image::make($file->getRealPath())->resize(659, 350)->save($thumnail);
 			$fullsize = public_path('portfolio/fullsize/' . $filename);
 			\Image::make($file->getRealPath())->resize(650, 350)->save($fullsize);
@@ -88,7 +88,7 @@ class PortfolioController extends Controller
 		// place for validation
 		$this->validate( $request, [
 			'title'       => 'required',
-			'icon'       => 'required',
+			//'icon'       => 'required',
 			'short_desc'       => 'required',
 			'description' => 'required',
 		] );
@@ -97,7 +97,7 @@ class PortfolioController extends Controller
 		if ($request->hasFile('icon')) {
 			$file = $request->icon;
 			$filename  = time() . '.' . $file->getClientOriginalExtension();
-			$thumnail = public_path('portfolio/thumnail/' . $filename);
+			$thumnail = public_path('portfolio/thumbnail/' . $filename);
 			\Image::make($file->getRealPath())->resize(659, 350)->save($thumnail);
 			$fullsize = public_path('portfolio/fullsize/' . $filename);
 			\Image::make($file->getRealPath())->resize(650, 350)->save($fullsize);

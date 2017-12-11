@@ -132,6 +132,22 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:;" class="infoborder">
+                        <i class="livicon" data-name="lab" data-c="#F89A14" data-hc="#F89A14" data-size="18" data-loop="true"></i>
+
+                        <span class="title">Blog Management</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{{route('backend-blog')}}">
+                                <i class="fa fa-angle-double-right"></i>
+                                Blog Manage
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 {{--<li>--}}
                     {{--<a href="javascript:;">--}}
                         {{--<i class="livicon" data-name="brush" data-c="#F89A14" data-hc="#F89A14" data-size="18" data-loop="true"></i>--}}
