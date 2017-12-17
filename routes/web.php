@@ -32,8 +32,11 @@ Route::group(array('prefix' => 'backend'), function ()
 		Route::post( 'save-employee', 'EmployeeController@saveEmployee' )->name( 'save-employee' );
 		Route::get( 'add-employee', function () {return view( 'backend.user.addemployeeform' );})->name( 'addemployee' );
 		Route::get( 'show-employee', 'EmployeeController@showEmployee' )->name( 'showemployee' );
+		Route::get( 'Employee/{emp_id}/edit', 'EmployeeController@edit' )->name('user_edit');
+		Route::post( 'update-employee', 'EmployeeController@update' )->name( 'update-employee' );
 		Route::get( 'delete-user/{user_id}', 'EmployeeController@deletUser' )->name( 'delete-user-data' );
-		Route::get( 'Edit-User/{user_id}', 'EmployeeController@EditUser' )->name( 'edit-user-data' );
+
+
 
 		Route::get( 'add-member', function () {return view( 'backend.Members.addemember' );})->name( 'add-member-form' );
 		Route::post( 'save-member', 'MemberController@saveMember' )->name( 'save-member' );
@@ -46,6 +49,8 @@ Route::group(array('prefix' => 'backend'), function ()
 		Route::get( 'slider', 'SliderController@index' )->name( 'slider' );
 		Route::get( 'add-slider', 'SliderController@addSlider' )->name( 'add-slider' );
 		Route::post( 'save_slider', 'SliderController@store' )->name( 'save_slider' );
+		Route::get( 'slider/{slider_id}/edit', 'SliderController@edit' )->name('slider_edit');
+		Route::post( 'update-slider', 'SliderController@update' )->name( 'update_slider' );
 		Route::get( 'slider/{customer}/delete', 'SliderController@destroy' );
 
 

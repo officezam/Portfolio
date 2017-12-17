@@ -37,9 +37,22 @@
 
                             </div>
 
-
+                            <div class="panel-title pull-right">
+                                <div class="caption">
+                                    <a href="{{ route('addemployee') }}">
+                                        <button class="btn btn-success pull-right">Add Employee</button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="panel-body">
+                            @if (Session::has('alert-success'))
+                                <div class="col-xs-12">
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {!! Session::get('alert-success') !!}</div>
+                                </div>
+                            @endif
                             <table class="table table-striped table-responsive" id="table1">
                                 <thead>
                                 <tr>
@@ -65,8 +78,16 @@
                                     <td>{{ $emp->created_by }}</td>
                                     <td>{{ $emp->verify }}</td>
                                     <td>
+
+                                        <a href="{{ route('user_edit', ['id'=>$emp->id]) }}">
+                                            <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
+                                        </a> |
+                                        <a href="{{ route('delete-user-data', $emp->id) }}">
+                                            <i class="ace-icon fa fa-trash-o fa-2x icon-only"></i>
+                                        </a>
+
                                         {{--<a href="{{ route('edit-user-data', $emp->id) }}" ><button type="button" class="btn btn-primary">Edit</button></a>--}}
-                                        <a href="{{ route('delete-user-data', $emp->id) }}" ><button type="button" class="btn btn-danger">Delete</button></a>
+{{--                                        <a href="{{ route('delete-user-data', $emp->id) }}" ><button type="button" class="btn btn-danger">Delete</button></a>--}}
                                     </td>
                                 </tr>
                                 @endforeach

@@ -68,13 +68,7 @@
                         <li>
                             <a href="{{ route('showemployee') }}">
                                 <i class="fa fa-angle-double-right"></i>
-                                View All Employee
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('addemployee') }}">
-                                <i class="fa fa-angle-double-right"></i>
-                                Add Employee
+                                Employee Manage
                             </a>
                         </li>
                     </ul>

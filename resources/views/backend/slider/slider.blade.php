@@ -45,6 +45,13 @@
                         </div>
 
                         <div class="panel-body">
+                            @if (Session::has('alert-success'))
+                                <div class="col-xs-12">
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {!! Session::get('alert-success') !!}</div>
+                                </div>
+                            @endif
                             <table class="table table-striped table-responsive" id="table1">
                                 <thead>
                                 <tr>
@@ -56,17 +63,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ( $SliderDate as $key => $customer )
+                                @foreach ( $SliderDate as $key => $slider )
                                     <tr class="gradeX">
                                         <td>{{++$counter}} </td>
-                                        <td>{{$customer->title}} </td>
-                                        <td>{{$customer->description }}</td>
-                                        <td>{{$customer->image}} </td>
+                                        <td>{{$slider->title}} </td>
+                                        <td>{{$slider->description }}</td>
+                                        <td><img src="{{ asset('slider/'.$slider->image) }}" style="width:20%"></td>
                                         <td>
-                                        <!-- <a href="{{ url('/customers/' . $customer->id . '/edit') }}">
-                                                <i class="ace-icon fa fa-pencil icon-only"></i>
-                                            </a> |  -->
-                                            <a href="{{ url('/backend/slider/' . $customer->id . '/delete') }}">
+                                        <a href="{{ route('slider_edit', ['id'=>$slider->id]) }}">
+                                                <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
+                                            </a> |
+                                            <a href="{{ url('/backend/slider/' . $slider->id . '/delete') }}">
                                                 <i class="ace-icon fa fa-trash-o fa-2x icon-only"></i>
                                             </a>
                                         </td>

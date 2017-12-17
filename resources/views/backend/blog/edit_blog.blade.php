@@ -109,7 +109,7 @@
                                                 </div>
                                                 <!-- /.box-header -->
                                                 <div class='box-body pad'>
-                                                        <textarea class="textarea editor-cls" name="description" style="height: 300px" placeholder="Write Blog Detail">{{ $blog->description }}</textarea>
+                                                        <textarea class="textarea editor-cls" style="height: 400px;" name="description" placeholder="Write Blog Detail">{{ $blog->description }}</textarea>
                                                 </div>
                                             </div>
                                         </div>

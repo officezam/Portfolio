@@ -9,22 +9,28 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Storage;
 use Carbon\Carbon;
+use App\Http\Controllers\DashboardController;
 
 class SliderController extends Controller
 {
 
+	public function __construct()
+	{
+		$this->dashboard = new DashboardController();
+	}
+
 	/**
-     * Load manage slider page view
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index ()
-    {
-    	//echo 'Controller';
-	    $SliderDate  = Slider::get();
-	    $counter  = 0;
-        return view('backend.slider.slider' , ['SliderDate' => $SliderDate , 'counter' => $counter]);
-    }
+	 * Load manage slider page view
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function index ()
+	{
+		//echo 'Controller';
+		$SliderDate  = Slider::get();
+		$counter  = 0;
+		return view('backend.slider.slider' , ['SliderDate' => $SliderDate , 'counter' => $counter]);
+	}
 
 
 	/**
@@ -70,6 +76,56 @@ class SliderController extends Controller
 			return redirect()->back();
 		}
 	}
+
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param \App\Slider $slider
+	 * @return \Illuminate\Http\Response
+	 * @internal param int $id
+	 */
+	public function edit( $id )
+	{
+		$slider = Slider::find($id);
+		return view('backend.slider.edit_slider' ,compact('slider'));
+	}
+
+	/**
+	 * Update Slider page content
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function update ( Request $request ) {
+
+		// place for validation
+		$this->validate( $request, [
+			'title'       => 'required',
+			'description' => 'required',
+			//'image'       => 'mimes:jpeg,bmp,png'
+		] );
+		$imageName = '';
+		if ( $request->hasFile( 'image' ) ) {
+
+			$file      = $request->file( 'image' );
+			$imageName = time() . '.' . $file->clientExtension();
+			$path = public_path() . '/slider/'. $imageName;
+			//$file->move( public_path() . '/slider/', $imageName );
+			\Image::make($file->getRealPath())->resize(1900, 1267)->save($path);
+			$this->dashboard->destroy(public_path('slider/'.$request->old_image));
+
+		}
+		$slider              = new Slider();
+		$slider->where('id', $request->id)
+		       ->update(['title'  => $request->title,'description' => $request->description , 'image' =>  (($imageName == '') ? $request->old_image:$imageName)]);
+		// set success message
+		$request->session()->flash( 'alert-success', 'Content has been updated successfully!' );
+
+		// redirect back
+		return redirect(route('slider'));
+	}
+
 
 	/**
 	 * Remove the specified resource from storage.
