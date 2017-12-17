@@ -45,7 +45,7 @@ class HomeController extends Controller
 	 */
 	public function blog()
 	{
-		$blogData = $this->blog->get();
+		$blogData = $this->blog->paginate(5);
 		return view('blog' , compact('blogData'));
 	}
 
@@ -58,9 +58,21 @@ class HomeController extends Controller
 	public function blogDetail($id)
 	{
 		$blogData = $this->blog->find($id);
-		return view('blog_detail' , compact('blogData'));
+		$recentBlog = $this->blog->get();
+		return view('blog_detail' , compact('blogData','recentBlog'));
 	}
 
+	/**
+	 * Show the application Portfolio Detail.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function portfolioDetail($id)
+	{
+		$portfolioDetail = $this->portfolio->find($id);
+		$portfolio       = $this->portfolio->get();
+		return view('portfolio_detail' , compact('portfolioDetail','portfolio'));
+	}
 
 
 }

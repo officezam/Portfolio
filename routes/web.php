@@ -17,6 +17,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('blogs', 'HomeController@blog')->name('blog');
 Route::get('blogs/{blog_id}/{title}', 'HomeController@blogDetail');
+Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')->name('portfolio-detail');
 
 
 

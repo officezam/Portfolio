@@ -152,10 +152,10 @@
 
 <section class="p-0" id="portfolio">
     <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
+        <div class="row no-gutters">
             @foreach($portfolio as $value)
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="portfolio/fullsize/{{$value->icon}}">
+                <div class="portfolio-box" >
                     <img class="img-fluid" src="portfolio/thumbnail/{{$value->icon}}" alt="{{ $value->title }}">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -163,11 +163,16 @@
                                 {{--Category--}}
                             {{--</div>--}}
                             <div class="project-name">
+{{--                                <a class="" href="{{ url('portfolio-detail/'.$value->id.'/'.$value->title) }} ">--}}
                                 {{ $value->title }}
+                                {{--</a>--}}
                             </div>
+                            <a class="" href="{{ url('portfolio/'.$value->id.'/'.str_replace(' ', '-', $value->title)) }}" target="_blank">
+                                <button class="btn btn-success">Read More</button>
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             @endforeach
             {{--<div class="col-lg-4 col-sm-6">--}}

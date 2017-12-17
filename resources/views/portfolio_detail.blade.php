@@ -71,30 +71,30 @@
             <div class="col-lg-8">
 
                 <!-- Title -->
-                <h1 class="mt-4">{{ $blogData->title }}</h1>
+                <h1 class="mt-4">{{ $portfolioDetail->title }}</h1>
 
                 <!-- Author -->
-                {{--<p class="lead">--}}
-                {{--by--}}
-                {{--<a href="#">Start Bootstrap</a>--}}
-                {{--</p>--}}
+            {{--<p class="lead">--}}
+            {{--by--}}
+            {{--<a href="#">Start Bootstrap</a>--}}
+            {{--</p>--}}
 
-                <hr>
+            {{--<hr>--}}
 
-                {{--<!-- Date/Time -->--}}
-                {{--<p>Posted on January 1, 2017 at 12:00 PM</p>--}}
+            {{--<!-- Date/Time -->--}}
+            {{--<p>Posted on January 1, 2017 at 12:00 PM</p>--}}
 
-                {{--<hr>--}}
+            <hr>
 
             <!-- Preview Image -->
-                <img class="img-fluid rounded" src="{{ asset('blog/fullsize/'.$blogData->icon) }}" alt="{{ $blogData->title }}">
+                <img class="img-fluid rounded" src="{{ asset('portfolio/fullsize/'.$portfolioDetail->icon) }}" alt="{{ $portfolioDetail->title }}">
 
-                <hr>
+            <hr>
 
-                <!-- Post Content -->
+            <!-- Post Content -->
                 {{--<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>--}}
 
-                {!! $blogData->description !!}
+                {!!  $portfolioDetail->description !!}
 
                 {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>--}}
 
@@ -166,17 +166,17 @@
 
                 <!-- Search Widget -->
                 <div class="card my-4">
-                    <h5 class="card-header">Recent Posts</h5>
+                    <h5 class="card-header">More Portfolio</h5>
                     <div class="card-body">
 
                         <div class="row">
-                            @foreach($recentBlog as $data)
+                            @foreach($portfolio as $data)
                                 <div class="col-md-6 p-3">
                                     <div class="card">
-                                        <a href="{{ url('/blogs/' . $data->id . '/'.str_replace(' ', '-', $data->title)) }}"><img class="card-img-top" src="{{ asset('blog/sidebar/'.$data->icon) }}" alt="{{ $data->title }}"></a>
+                                        <a  href="{{ url('/portfolio/' . $data->id . '/'.str_replace(' ', '-', $data->title)) }}"><img class="card-img-top" src="{{ asset('portfolio/fullsize/'.$data->icon) }}" alt="{{ $data->title }}"></a>
                                         <div class="card-body">
                                             <h4 class="small">
-                                                <a href="{{ url('/blogs/' . $data->id . '/'.str_replace(' ', '-', $data->title)) }}">{{ $data->title }}</a>
+                                                <a class="d-inline-block text-truncate" style="max-width: 100px;" href="{{ url('/portfolio/' . $data->id . '/'.str_replace(' ', '-', $data->title)) }}">{{ $data->title }}</a>
                                             </h4>
                                             {{--<p class="card-text">Lorem ipsum d</p>--}}
                                         </div>
