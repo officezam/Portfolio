@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Portfolio;
+use App\Http\Controllers\DashboardController;
 
 class PortfolioController extends Controller
 {
 	public function __construct() {
 
 		$this->portfolio = new Portfolio();
+		$this->dashboard = new DashboardController();
 	}
 
 	/*
@@ -98,11 +100,11 @@ class PortfolioController extends Controller
 			$file = $request->icon;
 			$filename  = time() . '.' . $file->getClientOriginalExtension();
 			$thumnail = public_path('portfolio/thumbnail/' . $filename);
-			DashboardController::destroy(public_path('blog/thumbnail/'.$oldFileName));
+			$this->dashboard->destroy(public_path('blog/thumbnail/'.$oldFileName));
 
 			\Image::make($file->getRealPath())->resize(659, 350)->save($thumnail);
 			$fullsize = public_path('portfolio/fullsize/' . $filename);
-			DashboardController::destroy(public_path('blog/fullsize/'.$oldFileName));
+			$this->dashboard->destroy(public_path('blog/fullsize/'.$oldFileName));
 
 			\Image::make($file->getRealPath())->resize(650, 350)->save($fullsize);
 		}
