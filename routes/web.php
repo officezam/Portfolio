@@ -19,6 +19,14 @@ Route::get('blogs', 'HomeController@blog')->name('blog');
 Route::get('blogs/{blog_id}/{title}', 'HomeController@blogDetail');
 Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')->name('portfolio-detail');
 
+Route::get('download-purposal', 'HtmltoPdfController@htmlToPdf');
+Route::get('template', 'HtmltoPdfController@template');
+
+
+Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+
+
 
 
 Route::group(array('prefix' => 'backend'), function ()

@@ -13,4 +13,5 @@ class service extends Model
 		$this->table = $table;
 		return $this;
 	}
+
 }
