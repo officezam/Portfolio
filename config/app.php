@@ -177,8 +177,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 	    Laravel\Socialite\SocialiteServiceProvider::class,
-	    Barryvdh\DomPDF\ServiceProvider::class,
+//	    Barryvdh\DomPDF\ServiceProvider::class,
+//	    Code2prog\Larathena\LarathenaServiceProvider::class,
+	    niklasravnsborg\LaravelPdf\PdfServiceProvider::class
+
+	    //"barryvdh/laravel-dompdf": "^0.8.1",
+	    //"code2prog/larathena": "1.*",
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -227,7 +233,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+       // 'PDF' => Barryvdh\DomPDF\Facade::class,
+        //'LarathenaPDF' => Code2prog\Larathena\LarathenaPdf::class,
+        'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
     ],
 
 ];

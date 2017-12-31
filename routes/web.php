@@ -21,6 +21,7 @@ Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')
 
 Route::get('download-purposal', 'HtmltoPdfController@htmlToPdf');
 Route::get('template', 'HtmltoPdfController@template');
+Route::get('htmldompdf', 'HtmltoPdfController@htmldompdf');
 
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
