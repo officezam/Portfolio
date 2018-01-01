@@ -123,7 +123,7 @@
                                                 </div>
                                                 <!-- /.box-header -->
                                                 <div class='box-body pad'>
-                                                        <textarea class="textarea editor-cls" style="height:400px;" name="description" placeholder="Write Service Detail">{{$service->short_desc or old('short_desc')}}</textarea>
+                                                        <textarea class="textarea editor-cls" style="height:400px;" name="description" placeholder="Write Service Detail">{{$service->description or old('description')}}</textarea>
                                                 </div>
                                             </div>
                                         </div>

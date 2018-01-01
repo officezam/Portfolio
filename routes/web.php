@@ -21,7 +21,6 @@ Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')
 
 Route::get('download-purposal', 'HtmltoPdfController@htmlToPdf');
 Route::get('template', 'HtmltoPdfController@template');
-Route::get('htmldompdf', 'HtmltoPdfController@htmldompdf');
 
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
@@ -72,7 +71,9 @@ Route::group(array('prefix' => 'backend'), function ()
 		Route::post( 'save-service', 'ServicesController@store' )->name( 'save_service' );
 		Route::get( 'service/{service_id}/delete', 'ServicesController@destroy' );
 		Route::get( 'service/{service_id}/edit', 'ServicesController@edit' );
+		Route::get( 'service/{service_id}/proposal', 'ServicesController@proposal' );
 		Route::post( 'service/update-service', 'ServicesController@update' )->name( 'update_service' );
+		Route::post( 'service/save-service-proposal', 'ServicesController@updateProposal' )->name( 'update_service_proposal' );
 
 		/*
 		* Portfolio Page Route

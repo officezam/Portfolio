@@ -73,6 +73,12 @@ class ServicesController extends Controller
 		$service = service::find($id);
 		return view('backend.services.edit_service', compact('service'));
 	}
+
+	public function proposal($id){
+		$service = service::find($id);
+		return view('backend.services.proposal_service', compact('service'));
+	}
+
 	/*
 	 * Service Save
 	 * */
@@ -96,6 +102,25 @@ class ServicesController extends Controller
 		return redirect(route('service'));
 	}
 
+	/*
+	* Service Proposal Save/Update
+	* */
+	public function updateProposal(Request $request)
+	{
+		// place for validation
+		$this->validate( $request, [
+			'description' => 'required',
+		] );
+		// update
+		$service = new service();
+		$service->where('id', $request->id)
+		        ->update(['description' => $request->description]);
+		// set success message
+		$request->session()->flash( 'alert-success', 'Content has been updated successfully!' );
+
+		// redirect back
+		return redirect(route('service'));
+	}
 
 
 }

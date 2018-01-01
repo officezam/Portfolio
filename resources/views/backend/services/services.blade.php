@@ -60,6 +60,7 @@
                                     <th>Sr No</th>
                                     <th>Title</th>
                                     <th>Short Descrition</th>
+                                    <th>Proposal</th>
                                     <th>Icon</th>
                                     <th>Action</th>
                                 </tr>
@@ -70,6 +71,11 @@
                                         <td>{{++$counter}} </td>
                                         <td>{{$value->title}} </td>
                                         <td><?php echo $value->short_desc ?></td>
+                                        <td>
+                                            <a href="{{ url('/backend/service/' . $value->id . '/proposal') }}">
+                                                <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
+                                            </a>
+                                        </td>
                                         <td>
                                             <i class="ace-icon fa {{ $value->icon }} fa-2x icon-only"></i>
                                              </td>
@@ -90,6 +96,7 @@
                                     <th>Sr No</th>
                                     <th>Title</th>
                                     <th>Short Descrition</th>
+                                    <th>Proposal</th>
                                     <th>Icon</th>
                                     <th>Action</th>
                                 </tr>
