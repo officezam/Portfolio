@@ -73,7 +73,7 @@
                                         <td><?php echo $value->short_desc ?></td>
                                         <td>
                                             <a href="{{ url('/backend/service/' . $value->id . '/proposal') }}">
-                                                <i class="ace-icon fa fa-pencil fa-2x icon-only"></i>
+                                                <button class="btn-warning">Update Proposal</button>
                                             </a>
                                         </td>
                                         <td>

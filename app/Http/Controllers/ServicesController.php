@@ -41,14 +41,14 @@ class ServicesController extends Controller
 			'title'       => 'required',
 			'icon'       => 'required',
 			'short_desc'       => 'required',
-			'description' => 'required',
+//			'description' => 'required',
 		] );
 		// insert
 		$service              = new service();
 		$service->title       = $request->title;
 		$service->icon       = $request->icon;
 		$service->short_desc       = $request->short_desc;
-		$service->description = $request->description;
+//		$service->description = '';
 		$service->save();
 		// set success message
 		$request->session()->flash( 'alert-success', 'Content has been saved successfully!' );
@@ -89,12 +89,12 @@ class ServicesController extends Controller
 			'title'       => 'required',
 			'icon'       => 'required',
 			'short_desc'       => 'required',
-			'description' => 'required',
+//			'description' => 'required',
 		] );
 		// update
 		$service = new service();
 		$service->where('id', $request->id)
-		->update(['title'  => $request->title,'icon' => $request->icon,'description' => $request->description,'short_desc' => $request->short_desc]);
+		->update(['title'  => $request->title,'icon' => $request->icon,'short_desc' => $request->short_desc]);
 		// set success message
 		$request->session()->flash( 'alert-success', 'Content has been updated successfully!' );
 

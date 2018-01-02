@@ -16,9 +16,8 @@ class HtmltoPdfController extends Controller
 //		$this->pdf = new PDF();
 	}
 
-	public function htmlToPdf(){
-
-		$portfolioDetail = $this->service->find(7);
+	public function htmlToPdf($service_id){
+		$portfolioDetail = $this->service->find($service_id);
 		$portfolio       = $this->service->get();
 //		return view('pdf.index' , compact('portfolioDetail','portfolio'));
 		$pdf = \PDF::loadView('pdf.index', compact('portfolioDetail','portfolio'));

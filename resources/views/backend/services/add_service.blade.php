@@ -107,46 +107,29 @@
 
 
 
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="row pd-15">
-                                        <div class='col-lg-12'>
-                                            <!-- /.box -->
-                                            <div class='box well well-sm'>
-                                                <div class='box-header'>
-                                                    <h3 class='box-title text-info'>
-                                                        Service Detail Description
-                                                        <small>For detailed page</small>
-                                                    </h3>
-                                                    <!-- tools box -->
-                                                    <div class="pull-right box-tools"></div>
-                                                    <!-- /. tools -->
-                                                </div>
-                                                <!-- /.box-header -->
-                                                <div class='box-body pad'>
-                                                        <textarea style="height: 300px" class="textarea editor-cls" name="description" placeholder="Write Service Detail"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /.col-->
-                                    </div>
-                                    {{--<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">--}}
-                                        {{--<label for="twilio_auth_token" class="col-sm-2 control-label">Service Description</label>--}}
-                                        {{--<div class="col-sm-12">--}}
-                                            {{--<div class="row">--}}
-                                                {{--<div class="panel panel-success">--}}
-                                                    {{--<div class="panel-heading">--}}
-                                                        {{--<div class="text-muted bootstrap-admin-box-title editor-clr">--}}
-                                                            {{--<i class="livicon" data-name="thermo-down" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>--}}
-                                                            {{--CKEditor Full--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="bootstrap-admin-panel-content">--}}
-                                                        {{--<textarea id="ckeditor_full" name="description"></textarea>--}}
-                                                    {{--</div>--}}
+                                    {{--<div class="hr-line-dashed"></div>--}}
+                                    {{--<div class="row pd-15">--}}
+                                        {{--<div class='col-lg-12'>--}}
+                                            {{--<!-- /.box -->--}}
+                                            {{--<div class='box well well-sm'>--}}
+                                                {{--<div class='box-header'>--}}
+                                                    {{--<h3 class='box-title text-info'>--}}
+                                                        {{--Service Detail Description--}}
+                                                        {{--<small>For detailed page</small>--}}
+                                                    {{--</h3>--}}
+                                                    {{--<!-- tools box -->--}}
+                                                    {{--<div class="pull-right box-tools"></div>--}}
+                                                    {{--<!-- /. tools -->--}}
+                                                {{--</div>--}}
+                                                {{--<!-- /.box-header -->--}}
+                                                {{--<div class='box-body pad'>--}}
+                                                        {{--<textarea style="height: 300px" class="textarea editor-cls" name="description" placeholder="Write Service Detail"></textarea>--}}
                                                 {{--</div>--}}
                                             {{--</div>--}}
                                         {{--</div>--}}
+                                        {{--<!-- /.col-->--}}
                                     {{--</div>--}}
+
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group">

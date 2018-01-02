@@ -143,7 +143,9 @@
                     <h3 class="mb-3">{{ $service->title }}</h3>
                     <p class="text-muted mb-0">{{ $service->short_desc }}</p>
                 </div>
-                <button class="btn btn-primary">Download proposal</button>
+            <a href="{{ route('download-service-proposal', ['service-id' =>  $service->id]) }}" target="_blank">
+                <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
+            </a>
             </div>
             @endforeach
         </div>

@@ -19,7 +19,7 @@ Route::get('blogs', 'HomeController@blog')->name('blog');
 Route::get('blogs/{blog_id}/{title}', 'HomeController@blogDetail');
 Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')->name('portfolio-detail');
 
-Route::get('download-purposal', 'HtmltoPdfController@htmlToPdf');
+Route::get('download-purposal/{service_id}', 'HtmltoPdfController@htmlToPdf')->name('download-service-proposal');
 Route::get('template', 'HtmltoPdfController@template');
 
 
