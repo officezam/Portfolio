@@ -22,6 +22,7 @@ class MemberController extends Controller
 //		$member = $this->user->where('id', Auth()->id())->with('Members');
 		$allMember = $this->user->where('created_by', Auth()->id())
 		                     ->where('type','!=','superUser')
+		                     ->where('type','!=','client')
 		                     ->where('type','!=','admin')->get();
 //		$totalMembers = Member::where('user_id', Auth()->id())->count();
 		//dd($member);
@@ -83,6 +84,44 @@ class MemberController extends Controller
 		return redirect()->route('showmember');
 	}
 
+
+
+
+	/*
+	 * Save Client
+	 * */
+	public function saveMemberFront(Request $request){
+		$validatedData = $request->validate([
+			'first_name' => 'required|string|max:255',
+			'last_name' => 'required|string|max:255',
+			'business_name' => 'required',
+			'email' => 'required|string|email|max:255|unique:users',
+			'password'  =>  'required|min:6',
+		]);
+
+		$userSaved = User::create([
+			'first_name' => $request->first_name,
+			'last_name' => $request->last_name,
+			'username' => $request->business_name,
+			'date_of_birth' => '1993-02-15',
+			'type' => 'client',
+			'phone' => '',
+			'created_by' => '',
+			'verify' => '1',
+			'address' => '',
+			'email' => $request->email,
+			'password' => bcrypt($request->password),
+			'remember_token' => $request->_token,
+			'profile_image' => '',
+			'postalcode' => '',
+			'total_members' => '',
+			'total_price' => '',
+			'membership_number' => '',
+			'expiration_date' => '1993-02-15'
+		]);
+		return redirect()->route('home');
+	}
+
 	/*Delete Employee
 	*/
 	public function deletMember($MemberId){
@@ -90,6 +129,13 @@ class MemberController extends Controller
 		return redirect()->route('showmember');
 	}
 
+	/*
+	 * Front side login
+	 * */
+	public function frontLogin(Request $request)
+	{
+		dd($request);
+	}
 
 
 }

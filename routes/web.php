@@ -12,15 +12,16 @@
 */
 
 
-
-
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('blogs', 'HomeController@blog')->name('blog');
 Route::get('blogs/{blog_id}/{title}', 'HomeController@blogDetail');
 Route::get('portfolio/{portfolio_id}/{title}', 'HomeController@portfolioDetail')->name('portfolio-detail');
 
 Route::get('download-purposal/{service_id}', 'HtmltoPdfController@htmlToPdf')->name('download-service-proposal');
 Route::get('template', 'HtmltoPdfController@template');
+
+Route::post('front-login', 'MemberController@frontLogin')->name('frontlogin');
+Route::post('save-client', 'MemberController@saveMemberFront' )->name( 'save-client' );
 
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
@@ -51,6 +52,7 @@ Route::group(array('prefix' => 'backend'), function ()
 		Route::post( 'save-member', 'MemberController@saveMember' )->name( 'save-member' );
 		Route::get( 'show-member', 'MemberController@showMember' )->name( 'showmember' );
 		Route::get( 'delete-member/{user_id}', 'MemberController@deletMember' )->name( 'delete-member-data' );
+
 
 		/*
 		* Slider Page Route

@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link js-scroll-trigger" href="#about">About</a>--}}
+                {{--<a class="nav-link js-scroll-trigger" href="#about">About</a>--}}
                 {{--</li>--}}
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="{{ asset('/') }}">Home</a>
@@ -56,6 +56,10 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger errorClick" href="" data-toggle="modal" data-target="#myModal">Login/Signup
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -65,9 +69,9 @@
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-	        <?php $sum=0; ?>
-        @foreach ( $sliders as $slide )
-            <li data-target="#carouselExampleIndicators" data-slide-to="{{ ++$sum }}" @if($counter==0) class="active" @endif></li>
+			<?php $sum=0; ?>
+            @foreach ( $sliders as $slide )
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{ ++$sum }}" @if($counter==0) class="active" @endif></li>
             @endforeach
         </ol>
         <div class="carousel-inner" role="listbox">
@@ -79,7 +83,7 @@
                         <p>{{$slide->description }}</p>
                     </div>
                 </div>
-                <?php ++$counter ?>
+				<?php ++$counter ?>
             @endforeach
 
         </div>
@@ -112,16 +116,16 @@
 {{--</header>--}}
 
 {{--<section class="bg-primary" id="about">--}}
-    {{--<div class="container">--}}
-        {{--<div class="row">--}}
-            {{--<div class="col-lg-8 mx-auto text-center">--}}
-                {{--<h2 class="section-heading text-white">We've got what you need!</h2>--}}
-                {{--<hr class="light my-4">--}}
-                {{--<p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>--}}
-                {{--<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+{{--<div class="container">--}}
+{{--<div class="row">--}}
+{{--<div class="col-lg-8 mx-auto text-center">--}}
+{{--<h2 class="section-heading text-white">We've got what you need!</h2>--}}
+{{--<hr class="light my-4">--}}
+{{--<p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>--}}
+{{--<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
 {{--</section>--}}
 
 <section id="services">
@@ -137,16 +141,16 @@
 
         <div class="row">
             @foreach($services as $service)
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box mt-5 mx-auto">
-                    <i class="fa fa-4x {{ $service->icon }} text-primary mb-3 sr-icons"></i>
-                    <h3 class="mb-3">{{ $service->title }}</h3>
-                    <p class="text-muted mb-0">{{ $service->short_desc }}</p>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box mt-5 mx-auto">
+                        <i class="fa fa-4x {{ $service->icon }} text-primary mb-3 sr-icons"></i>
+                        <h3 class="mb-3">{{ $service->title }}</h3>
+                        <p class="text-muted mb-0">{{ $service->short_desc }}</p>
+                    </div>
+                    <a href="{{ route('download-service-proposal', ['service-id' =>  $service->id]) }}" target="_blank">
+                        <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
+                    </a>
                 </div>
-            <a href="{{ route('download-service-proposal', ['service-id' =>  $service->id]) }}" target="_blank">
-                <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
-            </a>
-            </div>
             @endforeach
         </div>
     </div>
@@ -156,111 +160,111 @@
     <div class="container-fluid p-0">
         <div class="row no-gutters">
             @foreach($portfolio as $value)
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-box" >
-                    <img class="img-fluid" src="portfolio/thumbnail/{{$value->icon}}" alt="{{ $value->title }}">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            {{--<div class="project-category text-faded">--}}
+                <div class="col-lg-4 col-sm-6">
+                    <div class="portfolio-box" >
+                        <img class="img-fluid" src="portfolio/thumbnail/{{$value->icon}}" alt="{{ $value->title }}">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                {{--<div class="project-category text-faded">--}}
                                 {{--Category--}}
-                            {{--</div>--}}
-                            <div class="project-name">
-{{--                                <a class="" href="{{ url('portfolio-detail/'.$value->id.'/'.$value->title) }} ">--}}
-                                {{ $value->title }}
-                                {{--</a>--}}
+                                {{--</div>--}}
+                                <div class="project-name">
+                                    {{--                                <a class="" href="{{ url('portfolio-detail/'.$value->id.'/'.$value->title) }} ">--}}
+                                    {{ $value->title }}
+                                    {{--</a>--}}
+                                </div>
+                                <a class="" href="{{ url('portfolio/'.$value->id.'/'.str_replace(' ', '-', $value->title)) }}" target="_blank">
+                                    <button class="btn btn-success">Read More</button>
+                                </a>
                             </div>
-                            <a class="" href="{{ url('portfolio/'.$value->id.'/'.str_replace(' ', '-', $value->title)) }}" target="_blank">
-                                <button class="btn btn-success">Read More</button>
-                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
             {{--<div class="col-lg-4 col-sm-6">--}}
-                {{--<a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">--}}
-                    {{--<img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">--}}
-                    {{--<div class="portfolio-box-caption">--}}
-                        {{--<div class="portfolio-box-caption-content">--}}
-                            {{--<div class="project-category text-faded">--}}
-                                {{--Category--}}
-                            {{--</div>--}}
-                            {{--<div class="project-name">--}}
-                                {{--Project Name--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</a>--}}
+            {{--<a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">--}}
+            {{--<img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">--}}
+            {{--<div class="portfolio-box-caption">--}}
+            {{--<div class="portfolio-box-caption-content">--}}
+            {{--<div class="project-category text-faded">--}}
+            {{--Category--}}
+            {{--</div>--}}
+            {{--<div class="project-name">--}}
+            {{--Project Name--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
             {{--</div>--}}
             {{--<div class="col-lg-4 col-sm-6">--}}
-                {{--<a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">--}}
-                    {{--<img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">--}}
-                    {{--<div class="portfolio-box-caption">--}}
-                        {{--<div class="portfolio-box-caption-content">--}}
-                            {{--<div class="project-category text-faded">--}}
-                                {{--Category--}}
-                            {{--</div>--}}
-                            {{--<div class="project-name">--}}
-                                {{--Project Name--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</a>--}}
+            {{--<a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">--}}
+            {{--<img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">--}}
+            {{--<div class="portfolio-box-caption">--}}
+            {{--<div class="portfolio-box-caption-content">--}}
+            {{--<div class="project-category text-faded">--}}
+            {{--Category--}}
+            {{--</div>--}}
+            {{--<div class="project-name">--}}
+            {{--Project Name--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
             {{--</div>--}}
             {{--<div class="col-lg-4 col-sm-6">--}}
-                {{--<a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">--}}
-                    {{--<img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">--}}
-                    {{--<div class="portfolio-box-caption">--}}
-                        {{--<div class="portfolio-box-caption-content">--}}
-                            {{--<div class="project-category text-faded">--}}
-                                {{--Category--}}
-                            {{--</div>--}}
-                            {{--<div class="project-name">--}}
-                                {{--Project Name--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</a>--}}
+            {{--<a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">--}}
+            {{--<img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">--}}
+            {{--<div class="portfolio-box-caption">--}}
+            {{--<div class="portfolio-box-caption-content">--}}
+            {{--<div class="project-category text-faded">--}}
+            {{--Category--}}
+            {{--</div>--}}
+            {{--<div class="project-name">--}}
+            {{--Project Name--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
             {{--</div>--}}
             {{--<div class="col-lg-4 col-sm-6">--}}
-                {{--<a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">--}}
-                    {{--<img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">--}}
-                    {{--<div class="portfolio-box-caption">--}}
-                        {{--<div class="portfolio-box-caption-content">--}}
-                            {{--<div class="project-category text-faded">--}}
-                                {{--Category--}}
-                            {{--</div>--}}
-                            {{--<div class="project-name">--}}
-                                {{--Project Name--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</a>--}}
+            {{--<a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">--}}
+            {{--<img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">--}}
+            {{--<div class="portfolio-box-caption">--}}
+            {{--<div class="portfolio-box-caption-content">--}}
+            {{--<div class="project-category text-faded">--}}
+            {{--Category--}}
+            {{--</div>--}}
+            {{--<div class="project-name">--}}
+            {{--Project Name--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
             {{--</div>--}}
             {{--<div class="col-lg-4 col-sm-6">--}}
-                {{--<a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">--}}
-                    {{--<img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">--}}
-                    {{--<div class="portfolio-box-caption">--}}
-                        {{--<div class="portfolio-box-caption-content">--}}
-                            {{--<div class="project-category text-faded">--}}
-                                {{--Category--}}
-                            {{--</div>--}}
-                            {{--<div class="project-name">--}}
-                                {{--Project Name--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</a>--}}
+            {{--<a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">--}}
+            {{--<img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">--}}
+            {{--<div class="portfolio-box-caption">--}}
+            {{--<div class="portfolio-box-caption-content">--}}
+            {{--<div class="project-category text-faded">--}}
+            {{--Category--}}
+            {{--</div>--}}
+            {{--<div class="project-name">--}}
+            {{--Project Name--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
             {{--</div>--}}
         </div>
     </div>
 </section>
 
 {{--<section class="bg-dark text-white">--}}
-    {{--<div class="container text-center">--}}
-        {{--<h2 class="mb-4">Free Download at Start Bootstrap!</h2>--}}
-        {{--<a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>--}}
-    {{--</div>--}}
+{{--<div class="container text-center">--}}
+{{--<h2 class="mb-4">Free Download at Start Bootstrap!</h2>--}}
+{{--<a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>--}}
+{{--</div>--}}
 {{--</section>--}}
 
 <section id="contact">
@@ -310,7 +314,19 @@
 
 <!-- Custom scripts for this template -->
 <script src="{{ asset('js/creative.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+//        $("#myModal").modal("toggle");
 
+        @if ($errors->any())
+        $("#myModal").modal("toggle");
+        $('a[href="#Registration"]').click();
+        @endif
+        //        $("#submitButton").click(function(){
+        //            $("#myModal").modal();
+        //        });
+    });
+</script>
 </body>
 
 </html>
