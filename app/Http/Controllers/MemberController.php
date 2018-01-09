@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
-use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Intervention\Image;
 use App\Member;
+use App\User;
 
 class MemberController extends Controller
 {
@@ -119,6 +120,7 @@ class MemberController extends Controller
 			'membership_number' => '',
 			'expiration_date' => '1993-02-15'
 		]);
+		Auth::attempt(['email' => $request->email, 'password' => $request->password]);
 		return redirect()->route('home');
 	}
 
@@ -134,7 +136,10 @@ class MemberController extends Controller
 	 * */
 	public function frontLogin(Request $request)
 	{
-		dd($request);
+		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+			// Authentication passed...
+			return redirect(route('home'));
+		}
 	}
 
 

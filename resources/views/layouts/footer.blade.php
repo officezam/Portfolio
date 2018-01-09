@@ -45,7 +45,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="Login">
-                                <form autocomplete="on" class="form-horizontal" method="POST" action="{{ route('login') }}">
+                                <form autocomplete="on" class="form-horizontal" method="POST" action="{{ route('frontlogin') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">
