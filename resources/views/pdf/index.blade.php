@@ -38,7 +38,7 @@
 
       <div class="row">
         <div class="col-sm-12">
-          {!!  $portfolioDetail->description !!}
+          {!!  $description !!}
         </div>
       </div>
 

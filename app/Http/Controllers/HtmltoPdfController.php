@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
 use App\service;
+use Auth;
 
 
 class HtmltoPdfController extends Controller
@@ -21,8 +22,14 @@ class HtmltoPdfController extends Controller
 //		return view('pdf.index' , compact('portfolioDetail','portfolio'));
 //		$pdf = \PDF::setOption('header-html', base_path('views/pdf/header.html'));
 //		$pdf = $pdf->setOption('footer-html', base_path('views/pdf/footer.html'));
-		$pdf = \PDF::loadView('pdf.index', compact('portfolioDetail','portfolio'));
-		return $pdf->stream('document.pdf');
+		$user = Auth::user();
+		$description = $portfolioDetail->description;
+		$description = str_replace("{{clientName}}",$user->first_name.' '.$user->last_name,$description);
+		$description = str_replace("{{BussinesName}}",$user->username,$description);
+		$description = str_replace("{{Email}}",$user->email,$description);
+
+		$pdf = \PDF::loadView('pdf.index', compact('description','portfolio', 'user'));
+		return $pdf->stream('serviceProposal.pdf');
 	}
 
 

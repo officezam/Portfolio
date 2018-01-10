@@ -162,9 +162,15 @@
                         <h3 class="mb-3">{{ $service->title }}</h3>
                         <p class="text-muted mb-0">{{ $service->short_desc }}</p>
                     </div>
-                    <a href="{{ route('download-service-proposal', ['service-id' =>  $service->id]) }}" target="_blank">
-                        <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
-                    </a>
+                    @if(Auth::user() && Auth::user()->type=='client')
+                        <a href="{{ route('download-service-proposal', ['service-id' =>  $service->id]) }}" target="_blank">
+                            <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
+                        </a>
+                    @else
+                        <a class="nav-link js-scroll-trigger" href="" data-toggle="modal" data-target="#myModal">
+                            <button class="btn btn-primary"  style="cursor: pointer">Download proposal</button>
+                        </a>
+                    @endif
                 </div>
             @endforeach
         </div>
