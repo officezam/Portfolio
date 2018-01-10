@@ -26,7 +26,7 @@
             <h1>Editors</h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="index.html">
+                    <a href="">
                         <i class="livicon" data-name="home" data-size="14" data-loop="true" id="livicon-45" style="width: 14px; height: 14px;"><svg height="14" version="1.1" width="14" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.0625px;" id="canvas-for-livicon-45"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="#333333" stroke="none" d="M29.719,15.469L24,9.751V5H21V6.752L17.414,3.167L16.424000000000003,2.1769999999999996C16.19,1.9429999999999996,15.810000000000002,1.9429999999999996,15.575000000000003,2.1769999999999996L14.585000000000003,3.167L2.282,15.469C2.048,15.703,2.048,16.083,2.282,16.317999999999998L2.847,16.883999999999997C3.081,17.116999999999997,3.461,17.118,3.6959999999999997,16.883999999999997L16,4.58L28.304000000000002,16.884C28.537000000000003,17.117,28.918000000000003,17.118000000000002,29.153000000000002,16.884L29.718000000000004,16.318C29.952,16.083,29.952,15.704,29.719,15.469ZM16,6.701L6,16.701V30H12V19.6C12,19.269000000000002,12.269,19,12.6,19H19.4C19.730999999999998,19,20,19.269,20,19.6V30H26V16.701L16,6.701ZM16,15.5L16,15.5L16,15.5L16,15.5L16,15.5ZM16,15.5L16,15.5L16,15.5L16,15.5L16,15.5ZM16,15.5L16,15.5L16,15.5L16,15.5L16,15.5ZM16,15.5L16,15.5L16,15.5L16,15.5L16,15.5Z" stroke-width="0" transform="matrix(0.4375,0,0,0.4375,0,0)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="#333333" stroke="none" d="M18.4,20H13.599999999999998C13.267999999999997,20,12.999999999999998,20.269,12.999999999999998,20.6V30H19V20.6C19,20.269,18.731,20,18.4,20Z" transform="matrix(0.4375,0,0,0.4375,0,0)" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></i>
                         Home
                     </a>
@@ -39,6 +39,7 @@
         </section>
         <!--section ends-->
         <section class="content paddingleft_right15">
+            <b>Short Code (This Short code Use For user name,Business Name and Email)</b><p style="color: white; background-color: black">@{{clientName}} &nbsp;&nbsp; @{{BussinesName}} &nbsp;&nbsp; @{{Email}}</p>
             <!--main content-->
             <form action="{{route('update_service_proposal')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
