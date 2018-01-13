@@ -22,16 +22,6 @@
   <body>
 
 
-    <!-- Header with Background Image -->
-    <header class="business-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="display-3 text-center text-white mt-4">Business Name or Tagline</h1>
-          </div>
-        </div>
-      </div>
-    </header>
 
     <!-- Page Content -->
     <div class="container">
@@ -45,13 +35,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+
 
     <!-- Bootstrap core JavaScript -->
     {{--<script src="{{ asset('vendor/jquery/jquery.min.js')}}"></script>--}}

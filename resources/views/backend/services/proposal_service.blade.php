@@ -39,7 +39,7 @@
         </section>
         <!--section ends-->
         <section class="content paddingleft_right15">
-            <b>Short Code (This Short code Use For user name,Business Name and Email)</b><p style="color: white; background-color: black">@{{clientName}} &nbsp;&nbsp; @{{BussinesName}} &nbsp;&nbsp; @{{Email}}</p>
+            <b>Short Code (This Short code Use For user name,Business Name and Email)</b><p style="color:black">@{{clientName}} &nbsp;&nbsp; @{{BussinesName}} &nbsp;&nbsp; @{{Email}}</p>
             <!--main content-->
             <form action="{{route('update_service_proposal')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
