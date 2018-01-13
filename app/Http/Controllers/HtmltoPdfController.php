@@ -28,7 +28,7 @@ class HtmltoPdfController extends Controller
 		$description = str_replace("{{BussinesName}}",$user->username,$description);
 		$description = str_replace("{{Email}}",$user->email,$description);
 
-		$pdf = \PDF::loadView('pdf.index', compact('description','portfolio', 'user'))
+		$pdf = \PDF::loadView('pdf.index', compact('description','portfolio', 'user'));
 //			->setOption('footer-html',"<h2> Amir Shahzad</h2>" )//route('pdf.footer'))
 //			->setOption('margin-bottom', 10)
 //			->setPaper('a4');
