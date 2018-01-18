@@ -45,6 +45,9 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="Login">
+                                @if(\Session::has('login-error'))
+                                    <p class="alert alert-danger">{{ Session::get('login-error') }}</p>
+                                @endif
                                 <form autocomplete="on" class="form-horizontal" method="POST" action="{{ route('frontlogin') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group">

@@ -343,6 +343,10 @@
         $("#myModal").modal("toggle");
         $('a[href="#Registration"]').click();
         @endif
+        @if(\Session::has('login-error'))
+        $("#myModal").modal("toggle");
+        //$('a[href="#Registration"]').click();
+        @endif
         //        $("#submitButton").click(function(){
         //            $("#myModal").modal();
         //        });

@@ -139,6 +139,9 @@ class MemberController extends Controller
 		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 			// Authentication passed...
 			return redirect(route('home'));
+		}else{
+			$request->session()->flash( 'login-error', 'Email or Password does not Match to Any Account!' );
+			return redirect(route('home'));
 		}
 	}
 
